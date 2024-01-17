@@ -1,8 +1,9 @@
 const ejs = require('ejs');
 
 const renderPage = async (view) => {
-    return await ejs.renderFile('./layout/layout.ejs', {
-        body: await ejs.renderFile(`./views/${view}.ejs`)
+    return await ejs.renderFile('src/layout/layout.ejs', {
+        view: view,
+        body: await ejs.renderFile(`src/views/${view}.ejs`)
     });
 }
 

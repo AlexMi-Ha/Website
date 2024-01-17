@@ -8,6 +8,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/css', express.static(path.join(__dirname, '../public/css')));
 app.use('/js', express.static(path.join(__dirname, '../public/js')));
 app.use('/img', express.static(path.join(__dirname, '../public/img')));
+app.use('/fonts', express.static(path.join(__dirname, '../public/img')));
 
 app.set('view engine', 'ejs');
 

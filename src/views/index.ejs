@@ -1,0 +1,49 @@
+<article class="content col-reverse">
+    <section class="image-section">
+        <img class="round glowing-border noselect" draggable="false" src="images/alex.jpg" alt="A picture of me" width="400" height="400">
+    </section>
+    <section class="text-section">
+        <div class="heading">
+            <h3>Hello World! I'm</h3>
+            <h1>Alex Hagl</h1>
+            <h3>And I'm a <span id="title-carousel" class="primary"></span></h3>
+            <p class="low-opacity">I convert Monster Energy to code</p>
+        </div>
+        <a class="button button-width-fit-content button-primary round cta" href="/contact">Contact me</a>
+    </section>
+</article>
+
+<script>
+    const carouselElement = document.getElementById('title-carousel');
+    let carouselIndex = 0;
+    let carouselTitleIndex = 0;
+    const carouselContent = ["Fullstack Developer", "Musician", "Memelord"]
+    let carouselState = 0;
+
+    function titleCarousel() {
+        let waitTime = 80;
+        if(carouselIndex >= carouselContent.length) {
+            carouselIndex = 0;
+        }
+
+        carouselElement.innerText = carouselContent[carouselIndex].substring(0, carouselTitleIndex);
+        if(carouselState == 0)
+            ++ carouselTitleIndex;
+        else
+            --carouselTitleIndex;
+        
+        if(carouselTitleIndex > carouselContent[carouselIndex].length || carouselTitleIndex < 0) {
+            carouselState = !carouselState;
+            if(carouselState == 0) {
+                ++carouselIndex;
+            }
+            waitTime = 800;
+        }else {
+            carouselElement.innerText += '|';
+        }
+
+        setTimeout(titleCarousel, waitTime);
+    }
+
+    titleCarousel();
+</script>
