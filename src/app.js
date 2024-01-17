@@ -14,19 +14,19 @@ app.set('view engine', 'ejs');
 
 
 // Routes
-app.use('/', async (_,res) => {
+app.get('/', async (_,res) => {
     res.send(await renderPage('index'));
 });
-app.use('/about', async (_,res) => {
+app.get('/about', async (_,res) => {
     res.send(await renderPage('about'));
 });
-app.use('/portfolio', async (_,res) => {
+app.get('/portfolio', async (_,res) => {
     res.send(await renderPage('portfolio'));
 });
-app.use('/contact', async (_,res) => {
+app.get('/contact', async (_,res) => {
     res.send(await renderPage('contact'));
 });
-app.use('/imprint', async (_,res) => {
+app.get('/imprint', async (_,res) => {
     res.send(await renderPage('imprint'));
 });
 
