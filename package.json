@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "3.0.0",
+  "description": "My personal portfolio website",
+  "main": "src/app.js",
+  "scripts": {
+    "watch": "nodemon src/app.js",
+    "build": "echo hello there"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexMi-Ha/Website.git"
+  },
+  "author": "AlexMiHa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexMi-Ha/Website/issues"
+  },
+  "homepage": "https://github.com/AlexMi-Ha/Website#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
