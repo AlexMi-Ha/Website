@@ -45,7 +45,7 @@ jobs:
       - name: Build
         run: |
           npm run build
-          cp CNAME dest/CNAME
+          echo alexmiha.de > dest/CNAME
 
       - name: Push
         uses: s0/git-publish-subdir-action@develop
