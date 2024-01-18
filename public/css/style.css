@@ -454,6 +454,10 @@ footer .footer-content div a {
         object-fit: cover;
         max-height: 10em;
     }
+
+    .mobile-padding-top {
+        padding-top: 2rem;
+    }
 }
 
 @media screen and (max-width: 420px) {
