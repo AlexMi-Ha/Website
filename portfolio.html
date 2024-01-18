@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <title>Contact - AlexMiHa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/icons.css" />
+        <link rel="stylesheet" href="/css/input.css" />
+        <script src="/js/cookie.js"></script>
+        <script src="/js/theme.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-content">
+                <a class="icon-button" href="/"><img class="svg-content" src="images/logo.svg" alt="Logo"/></a>
+                <div>
+                    <div id="menu-links">
+                        <a href="/" >Home</a>
+                        <a href="/about" >About</a>
+                        <!-- <a href="/">Blog</a> -->
+                        <a href="/portfolio" class=primary>Portfolio</a>
+                        <a href="/contact" >Contact</a>
+                    </div>
+                    <button id="theme-switcher" aria-label="switch theme"><span class="ti ti-light-darkmode"></span></button>
+                    <button id="nav-toggle" aria-label="toggle mobile navigation"><span class="ti ti-menu-2"></span></button>
+                    <script>
+                        document.getElementById('nav-toggle').addEventListener('click', function () {
+                            const menu = document.getElementById('menu-links');
+                            const buttonDisplay = this.lastElementChild;
+                            if(menu.classList.contains('active')) {
+                                menu.classList.remove('active');
+                                buttonDisplay.classList.remove('ti-x')
+                                buttonDisplay.classList.add('ti-menu-2');
+                            }else {
+                                menu.classList.add('active');
+                                buttonDisplay.classList.add('ti-x')
+                                buttonDisplay.classList.remove('ti-menu-2');
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+        </nav>
+        <div class="wrapper">
+            <section>
+    <div class="text-center content-header">
+        <h1>A selection of my projects</h1>
+        <p class="low-opacity">View more of my projects on <a class="underline" target="_blank" href="https://github.com/AlexMi-Ha">GitHub</a></p>
+    </div>
+    <article class="content auto-col">
+        <a class="project-card" target="_blank" href="https://github.com/AlexMi-Ha/PasswordManager">
+            <img class="project-image" src="images/projects/pwman.png" alt="project-image">
+            <div class="project-info">
+                <h3>PWManager</h3>
+                <p class="low-opacity">Password Manager Application to store encrypted account information</p>
+                <div class="project-tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">WPF</span>
+                    <span class="tag">Desktop</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/AlexMi-Ha/IdentityServer">
+            <img class="project-image" src="images/projects/identityserver.png" alt="project-image">
+            <div class="project-info">
+                <h3>Identity Server</h3>
+                <p class="low-opacity">Central selfhosted OAuth provider that manages users, roles and authentication tokens</p>
+                <div class="project-tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">ASP.NET</span>
+                    <span class="tag">MVC</span>
+                    <span class="tag">OpenID-Connect</span>
+                    <span class="tag">Web</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/CUMGroup/EatIt">
+            <img class="project-image" src="images/projects/eatit.png" alt="project-image">
+            <div class="project-info">
+                <h3>EatIt</h3>
+                <p class="low-opacity">Recipe Manager Application to store all your recipes and manage shopping lists</p>
+                <div class="project-tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">ASP.NET</span>
+                    <span class="tag">REST</span>
+                    <span class="tag">.NET MAUI</span>
+                    <span class="tag">Desktop</span>
+                    <span class="tag">Mobile</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/N35T/Sharc">
+            <img class="project-image" src="images/projects/Sharc.png" alt="project-image">
+            <div class="project-info">
+                <h3>Sharc</h3>
+                <p class="low-opacity">A selfhosted shared calendar system that synchronizes appointments in your local network</p>
+                <div class="project-tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">ASP.NET</span>
+                    <span class="tag">REST</span>
+                    <span class="tag">.NET MAUI</span>
+                    <span class="tag">Mobile</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/AlexMi-Ha/DiscordBotManagerApi">
+            <img class="project-image" src="images/projects/discordbot.png" alt="project-image">
+            <div class="project-info">
+                <h3>DiscordBot-Manager</h3>
+                <p class="low-opacity">Management API for all of your Discord Bots</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/AlexMi-Ha/Calculator">
+            <img class="project-image" src="images/projects/Calculator.png" alt="project-image">
+            <div class="project-info">
+                <h3>Calculator</h3>
+                <p class="low-opacity">Interpreter based Calculator using a recursive descent parser</p>
+                <div class="project-tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">Desktop</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/CUMGroup/AMOGUS/">
+            <img class="project-image" src="images/projects/amogus.png" alt="project-image">
+            <div class="project-info">
+                <h3>AMOGUS</h3>
+                <p class="low-opacity">Advanced Mathematic Operations & Geometrics Under Stress. A online math-learning app</p>
+                <div class="project-tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">ASP.NET</span>
+                    <span class="tag">REST</span>
+                    <span class="tag">Angular</span>
+                    <span class="tag">Web</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/AlexMi-Ha/FaceGenAI">
+            <img class="project-image" src="images/projects/facegen.png" alt="project-image">
+            <div class="project-info">
+                <h3>FaceGen-AI</h3>
+                <p class="low-opacity">A generative AI creating adjustable faces with a convolutional neural network</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Keras</span>
+                    <span class="tag">AI</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/AlexMi-Ha/FlappyBirdAI">
+            <img class="project-image" src="images/projects/flappy.png" alt="project-image">
+            <div class="project-info">
+                <h3>Flappy Bird AI</h3>
+                <p class="low-opacity">Visualization of AI learning the game "Flappy Bird" using a Genetic Algorithm</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">AI</span>
+                </div>
+            </div>
+        </a>
+        <a class="project-card" target="_blank" href="https://github.com/AlexMi-Ha/InfoGame2020">
+            <img class="project-image" src="images/projects/dom.png" alt="project-image">
+            <div class="project-info">
+                <h3>DOM</h3>
+                <p class="low-opacity">DOM is a dungeon crawler game where the player has to fight through an abandoned dungeon full of monsters</p>
+                <div class="project-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Game</span>
+                </div>
+            </div>
+        </a>
+    </article>
+</section>
+        </div>
+        <footer>
+            <div class="footer-content low-opacity">
+                <div>
+                    <span>&copy; AlexMiHa</span>
+                    <span class="foot-dot">&middot;</span>
+                    <a href="/imprint">Imprint</a>
+                </div>
+                <div>
+                    <a class="icon-button" id="insta-link" target="_blank" href="https://www.instagram.com/alexmi_ha/"><img class="svg-content" alt="asd" src="images/insta.svg"></a>
+                    <a class="icon-button" id="github-link" target="_blank" href="https://github.com/AlexMi-Ha"><img class="svg-content" alt="asd" src="images/github-mark.svg"></a>
+                    <a class="icon-button" id="mail-link" target="_blank" href="mailto:alex@alexmiha.de"><img class="svg-content" alt="asd" src="images/email.svg"></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

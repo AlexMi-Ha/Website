@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <title>Contact - AlexMiHa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/icons.css" />
+        <link rel="stylesheet" href="/css/input.css" />
+        <script src="/js/cookie.js"></script>
+        <script src="/js/theme.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-content">
+                <a class="icon-button" href="/"><img class="svg-content" src="images/logo.svg" alt="Logo"/></a>
+                <div>
+                    <div id="menu-links">
+                        <a href="/" class=primary>Home</a>
+                        <a href="/about" >About</a>
+                        <!-- <a href="/">Blog</a> -->
+                        <a href="/portfolio" >Portfolio</a>
+                        <a href="/contact" >Contact</a>
+                    </div>
+                    <button id="theme-switcher" aria-label="switch theme"><span class="ti ti-light-darkmode"></span></button>
+                    <button id="nav-toggle" aria-label="toggle mobile navigation"><span class="ti ti-menu-2"></span></button>
+                    <script>
+                        document.getElementById('nav-toggle').addEventListener('click', function () {
+                            const menu = document.getElementById('menu-links');
+                            const buttonDisplay = this.lastElementChild;
+                            if(menu.classList.contains('active')) {
+                                menu.classList.remove('active');
+                                buttonDisplay.classList.remove('ti-x')
+                                buttonDisplay.classList.add('ti-menu-2');
+                            }else {
+                                menu.classList.add('active');
+                                buttonDisplay.classList.add('ti-x')
+                                buttonDisplay.classList.remove('ti-menu-2');
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+        </nav>
+        <div class="wrapper">
+            <article class="content col-reverse">
+    <section class="image-section">
+        <img class="round glowing-border noselect" draggable="false" src="images/alex.jpg" alt="A picture of me" width="400" height="400">
+    </section>
+    <section class="text-section">
+        <div class="heading">
+            <h3>Hello World! I'm</h3>
+            <h1>Alex Hagl</h1>
+            <h3>And I'm a <span id="title-carousel" class="primary"></span></h3>
+            <p class="low-opacity">I convert Monster Energy to code</p>
+        </div>
+        <a class="button button-width-fit-content button-primary round cta" href="/contact">Contact me</a>
+    </section>
+</article>
+
+<script>
+    const carouselElement = document.getElementById('title-carousel');
+    let carouselIndex = 0;
+    let carouselTitleIndex = 0;
+    const carouselContent = ["Fullstack Developer", "Musician", "Memelord"]
+    let carouselState = 0;
+
+    function titleCarousel() {
+        let waitTime = 80;
+        if(carouselIndex >= carouselContent.length) {
+            carouselIndex = 0;
+        }
+
+        carouselElement.innerText = carouselContent[carouselIndex].substring(0, carouselTitleIndex);
+        if(carouselState == 0)
+            ++ carouselTitleIndex;
+        else
+            --carouselTitleIndex;
+        
+        if(carouselTitleIndex > carouselContent[carouselIndex].length || carouselTitleIndex < 0) {
+            carouselState = !carouselState;
+            if(carouselState == 0) {
+                ++carouselIndex;
+            }
+            waitTime = 800;
+        }else {
+            carouselElement.innerText += '|';
+        }
+
+        setTimeout(titleCarousel, waitTime);
+    }
+
+    titleCarousel();
+</script>
+        </div>
+        <footer>
+            <div class="footer-content low-opacity">
+                <div>
+                    <span>&copy; AlexMiHa</span>
+                    <span class="foot-dot">&middot;</span>
+                    <a href="/imprint">Imprint</a>
+                </div>
+                <div>
+                    <a class="icon-button" id="insta-link" target="_blank" href="https://www.instagram.com/alexmi_ha/"><img class="svg-content" alt="asd" src="images/insta.svg"></a>
+                    <a class="icon-button" id="github-link" target="_blank" href="https://github.com/AlexMi-Ha"><img class="svg-content" alt="asd" src="images/github-mark.svg"></a>
+                    <a class="icon-button" id="mail-link" target="_blank" href="mailto:alex@alexmiha.de"><img class="svg-content" alt="asd" src="images/email.svg"></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
