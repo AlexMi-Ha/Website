@@ -390,6 +390,7 @@ footer .footer-content div a {
     nav {
         position: sticky;
         top: 0;
+        z-index: 900;
         background-color: var(--secondary);
     }
 
@@ -404,6 +405,7 @@ footer .footer-content div a {
         padding: 0 2em;
         background-color: var(--secondary);
         transition: left ease-in-out 500ms;
+        margin: 0;
     }
 
     #menu-links.active {
@@ -428,17 +430,8 @@ footer .footer-content div a {
         font-size: var(--font-size--small);
     }
 
-    .content, .content-header {
-        z-index: -1;
-        position: relative;
-    }
-
     .content-header {
         padding: 1rem 0;
-    }
-
-    footer {
-        z-index: -1;
     }
 
     .project-card {
