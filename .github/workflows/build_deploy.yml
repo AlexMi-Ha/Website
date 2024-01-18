@@ -45,6 +45,7 @@ jobs:
       - name: Build
         run: |
           npm run build
+          ls
 
       - name: Push
         uses: s0/git-publish-subdir-action@develop
