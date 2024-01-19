@@ -1,4 +1,4 @@
-let lightTheme = true;
+let lightTheme = false;
 function switchTheme(ele = document.getElementById('theme-switcher'), theme = !lightTheme) {
     lightTheme = theme;
     document.documentElement.dataset.theme = lightTheme ? 'light' : 'dark';
