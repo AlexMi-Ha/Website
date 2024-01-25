@@ -12,6 +12,8 @@ app.use('/fonts', express.static(path.join(__dirname, '../public/img')));
 
 app.set('view engine', 'ejs');
 
+let posts = [];
+
 
 // Routes
 app.get('/', async (_,res) => {
@@ -30,7 +32,13 @@ app.get('/imprint', async (_,res) => {
     res.send(await renderPage('imprint'));
 });
 
+
+app.get('/posts', async (req, res) => {
+
+});
+
 const port = 3000;
-app.listen(port, function () {
-  console.log('node app running on port ' + port);
+app.listen(port, async function () {
+    posts = await loadPosts();
+    console.log('node app running on port ' + port);
 });
