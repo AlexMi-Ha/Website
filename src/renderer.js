@@ -27,7 +27,7 @@ const loadPosts = async () => {
         parsedPosts.push(parsePost(posts[i].split('.')[0], postContents[i].toString('utf-8')));
     }
 
-    return parsedPosts;
+    return parsedPosts.sort((a,b) => b.date - a.date);
 }
 
 module.exports = {renderPage, loadPosts}

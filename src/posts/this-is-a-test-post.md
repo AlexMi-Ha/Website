@@ -1,7 +1,7 @@
 ---
 Title: This is a test post for my blogging software
 Summary: This is one hell of a summary for one hell of a blogpost. Click to see more about these shitpost
-TitleImage: /images/posts/default.jpg
+TitleImage: /images/alex.jpg
 Date: 25.01.2024
 Tags: Life, Programming
 ---

@@ -29,12 +29,13 @@ async function renderFile(file) {
 
 async function buildBlog() {
     const posts = await loadPosts();
-    const tags = [...new Set(posts.map(e => e.tags).flat())];
+    const tags = [...new Set(posts.map(e => e.tags).flat())].sort();
 
     const postPromises = [];
     await fs.mkdir('dest/posts/topics', {recursive: true});
+    postPromises.push(createTopic(posts, undefined, tags));
     for(const tag of tags) {
-        postPromises.push(createTopic(posts, tag));
+        postPromises.push(createTopic(posts, tag, tags));
     }
     for(const post of posts) {
         postPromises.push(createPost(post));
@@ -43,13 +44,18 @@ async function buildBlog() {
 }
 
 async function createPost(post) {
-    const html = await renderPage('blog/post', post);
+    const html = await renderPage('blog/post', {post:post});
     await fs.writeFile(`dest/posts/${post.filename}.html`, html);
 }
 
-async function createTopic(posts, tag) {
-    posts = posts.filter(e => e.tags.includes(tag));
+async function createTopic(posts, tag, tags) {
+    if(tag)
+        posts = posts.filter(e => e.tags.includes(tag));
 
-    const html = await renderPage('blog/posts', posts);
-    await fs.writeFile(`dest/posts/topics/${tag}.html`, html);
+    const html = await renderPage('blog/posts', {posts:posts, allTags: tags, currentTag: tag});
+    if(tag) {
+        await fs.writeFile(`dest/posts/topics/${tag}.html`, html);
+    }else {
+        await fs.writeFile(`dest/posts/index.html`, html);
+    }
 }

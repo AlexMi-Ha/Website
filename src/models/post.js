@@ -33,7 +33,7 @@ function parsePost(filename, rawPost) {
         }else if(metaLine.startsWith("Date:")) {
             const dateStringParts =metaLine.substring("Date:".length).trim().split(".");
             // Date needs YYYY-MM-DD format to parse
-            parsedPost.titleImage = new Date(dateStringParts[2], dateStringParts[1] - 1, dateStringParts[0]);
+            parsedPost.date = new Date(dateStringParts[2], dateStringParts[1] - 1, dateStringParts[0]);
         }else if(metaLine.startsWith("Tags:")) {
             parsedPost.tags = metaLine.substring("Tags:".length).split(",").map(e => e.trim());
         }else {
@@ -41,7 +41,7 @@ function parsePost(filename, rawPost) {
         }
     }
 
-    parsedPost.htmlContent = marked.parse(lines.join('\n'));
+    parsedPost.htmlContent = marked.parse(lines.join('\n')).replaceAll(/(<table>(\s|.)*?<\/table>)/g, '<div class="table-wrapper">$1</div>');;
     return parsedPost;
 } 
 
