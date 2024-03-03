@@ -76,10 +76,10 @@ markdown > div {
     display: none !important;
   }
   
-  markdown a {
+  markdown a, markdown a:visited {
     background-color: transparent;
     color: var(--accent);
-    text-decoration: none;
+    text-decoration: underline;
   }
   
   markdown abbr[title] {
@@ -853,4 +853,13 @@ markdown > div {
     markdown {
         padding: 0;
     }
+  }
+
+  h1,h2,h3, markdown h1, markdown h2, markdown h3 {
+    color: var(--primary);
+    margin-top: 2em;
+  }
+
+  h2:first-child {
+    margin-top: initial;
   }
