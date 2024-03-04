@@ -24,8 +24,16 @@ async function renderFile(file) {
     await Promise.all(promises)
     console.log("Done building website!\nStarting to build the blog!");
     await buildBlog();
+
+    await addRobotsTxt();
     console.log("Build complete!");
 })();
+
+async function addRobotsTxt() {
+    const robots = `User-agent: *
+Disallow: `
+    await fs.writeFile(`dest/robots.txt`, robots);
+}
 
 async function buildBlog() {
     const posts = await loadPosts();
@@ -45,15 +53,15 @@ async function buildBlog() {
 }
 
 async function createPost(post) {
-    const html = await renderPage('blog/post', {post:post});
+    const html = await renderPage('blog/post', {post:post, meta:post.summary});
     await fs.writeFile(`dest/posts/${post.filename}.html`, html);
 }
 
 async function createTopic(posts, tag, tags) {
     if(tag)
         posts = posts.filter(e => e.tags.includes(tag));
-
-    const html = await renderPage('blog/posts', {posts:posts, allTags: tags, currentTag: tag});
+    const topicSummary = 'A collection of my blog posts';
+    const html = await renderPage('blog/posts', {posts:posts, allTags: tags, currentTag: tag, meta: topicSummary});
     if(tag) {
         await fs.writeFile(`dest/posts/topics/${tag}.html`, html);
     }else {

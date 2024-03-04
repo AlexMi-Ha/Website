@@ -1,6 +1,6 @@
 ---
 Title: I wrote my own blogging software, and why you should not!
-Summary: 
+Summary: A blog post about the journey and the hurdles I've had writing my blogging software
 TitleImage: /images/posts/8c8df23c-d702-43ed-b49a-e3597a085464.jpg
 Date: 03.03.2024
 Tags: Programming
@@ -189,7 +189,7 @@ Here, I am using `GitHub Pages`. The deployment action already copies the compil
 
 GitHub pages also offers the ability to serve the website with a **custom domain**. Thankfully I have one!
 
-Just add a `CNAME` dns record for your domain, that points to the github servers and add your domain in the repository settings. You can read more about this process [here](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages).
+Just add a `CNAME` dns record for your domain, that points to the github servers and add your domain in the repository settings. You can read more about this process in the [GitHub docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages).
 
 
 ## Why you should not write your own blogging software!
@@ -214,6 +214,8 @@ It was fun writing this piece of software, but if your endgoal really is just to
 
 
 ## Last Words
+If you want to learn more about this project, visit my [GitHub repo](https://github.com/AlexMi-Ha/Website).
+
 In the future, I will post on a wide range of topics. But do not take them as too serious. I just try to have fun and practice my writing skills a bit.
 
 In the end, I'm just a random dude on the internet, who loves shitposting, programming, music and cooking.

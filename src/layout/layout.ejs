@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/css/icons.css" />
         <link rel="stylesheet" href="/css/input.css" />
         <% if(view.startsWith('blog')) {%>
+            <meta name="description" content='<%= meta %>'>
             <link rel="stylesheet" href="/css/markdown.css" />
             <link href="/css/prism.css" rel="stylesheet" />
         <% } %>
