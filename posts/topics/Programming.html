@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
     <head>
-        <title>Imprint - AlexMiHa</title>
+        <title>Posts - AlexMiHa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8" />
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/icons.css" />
         <link rel="stylesheet" href="/css/input.css" />
+        
+            <meta name="description" content='A collection of my blog posts'>
+            <link rel="stylesheet" href="/css/markdown.css" />
+            <link href="/css/prism.css" rel="stylesheet" />
         
         <script src="/js/cookie.js"></script>
         <script src="/js/theme.js"></script>
@@ -20,7 +24,7 @@
                     <div id="menu-links">
                         <a href="/" >Home</a>
                         <a href="/about" >About</a>
-                        <a href="/posts" >Blog</a>
+                        <a href="/posts" class=primary>Blog</a>
                         <a href="/portfolio" >Portfolio</a>
                         <a href="/contact" >Contact</a>
                     </div>
@@ -45,13 +49,40 @@
             </div>
         </nav>
         <div class="wrapper">
-            <article class="content no-grid text-center content-header">
-    <h1 class="text-center">Impressum</h1>
-    <p>Alexander Hagl<br>
-    Günzenhausen 4b<br>
-    84072 Au-Hallertau</p>
-    <h3>Kontakt</h3>
-    <p><a class="underline" href="mailto:alex@hagl.de">alex@hagl.de</a></p>
+            <article id="blogpost-list" class="content content-w-sidecol col-reverse place-top content-header">
+    
+    <aside id="topics-nav">
+        <h2>Filter Topics</h2>
+        <div class="project-tags">
+            <a href="/posts" class="tag"> All Topics </a>
+            <div class="flex-break"></div> <!-- break -->
+            
+                <a href=/posts/topics/Programming class="tag active"> Programming </a>
+            
+        </div>
+    </aside>
+
+    <section id="posts-section width-100">
+
+        
+            <div class="project-card width-100">
+                <img class="project-image" loading="lazy" src=/images/posts/8c8df23c-d702-43ed-b49a-e3597a085464.jpg alt="post-image">
+                <div class="project-info">
+                    <h3><a href=/posts/i-wrote-my-own-blogging-software>I wrote my own blogging software, and why you should not!</a></h3>
+                    <span class="low-opacity">Mar 3, 2024</span>
+                    <p class="low-opacity">A blog post about the journey and the hurdles I&#39;ve had writing my blogging software</p>
+                    <div class="project-tags">
+
+                        
+                            <a href=/posts/topics/Programming class="tag"> Programming </a>
+                        
+
+                    </div>
+                </div>
+            </div>
+        
+
+    </section>
 </article>
         </div>
         <footer>

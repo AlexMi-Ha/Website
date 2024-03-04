@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+        <title>Post - AlexMiHa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/icons.css" />
+        <link rel="stylesheet" href="/css/input.css" />
+        
+            <meta name="description" content='A blog post about the journey and the hurdles I&#39;ve had writing my blogging software'>
+            <link rel="stylesheet" href="/css/markdown.css" />
+            <link href="/css/prism.css" rel="stylesheet" />
+        
+        <script src="/js/cookie.js"></script>
+        <script src="/js/theme.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-content">
+                <a class="icon-button" href="/"><img class="svg-content" src="/images/logo.svg" alt="Logo"/></a>
+                <div>
+                    <div id="menu-links">
+                        <a href="/" >Home</a>
+                        <a href="/about" >About</a>
+                        <a href="/posts" class=primary>Blog</a>
+                        <a href="/portfolio" >Portfolio</a>
+                        <a href="/contact" >Contact</a>
+                    </div>
+                    <button id="theme-switcher" class="dark" aria-label="switch theme"><span class="ti ti-light-darkmode"></span></button>
+                    <button id="nav-toggle" aria-label="toggle mobile navigation"><span class="ti ti-menu-2"></span></button>
+                    <script>
+                        document.getElementById('nav-toggle').addEventListener('click', function () {
+                            const menu = document.getElementById('menu-links');
+                            const buttonDisplay = this.lastElementChild;
+                            if(menu.classList.contains('active')) {
+                                menu.classList.remove('active');
+                                buttonDisplay.classList.remove('ti-x')
+                                buttonDisplay.classList.add('ti-menu-2');
+                            }else {
+                                menu.classList.add('active');
+                                buttonDisplay.classList.add('ti-x')
+                                buttonDisplay.classList.remove('ti-menu-2');
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+        </nav>
+        <div class="wrapper">
+            <article id="blogpost" class="content content-block place-top content-header">
+    <h2 class="text-center">I wrote my own blogging software, and why you should not!</h2>
+    <div class="text-center">
+        <img src="/images/alex.jpg" alt="A picture of the author" class="round" width="70" >
+        <p class="mt-p5">Alex Hagl</p>
+        <span class="border-top">March 3, 2024</span>
+    </div>
+    <markdown>
+        <div>
+            <blockquote>
+<p>&quot;<em>QWERTYUIOP.</em>&quot;</p>
+</blockquote>
+<p> ~ Ray Tomlinson - The first email message ever sent (probably)</p>
+<p>Hello there,</p>
+<p>I&#39;ve finally gotten around to writing the first blogpost on my website. Finally getting a use out of the blogging software I wrote exactly for this purpose 🥳.</p>
+<p>In this post I will tell you something about <strong>my journey</strong> of writing this piece of software and my <strong>hurdles</strong> along the way! 👀</p>
+<h2>Static sites for the win</h2>
+<p>I thought long about what tech stack to use for this project.</p>
+<blockquote>
+<p><em>Do I want the maintainability of a full cms?</em> ⚙</p>
+<p><em>Where do I want to host this?</em> 💻</p>
+<p><em>How complex do I want it to get?</em> 🤯</p>
+<p><em>What will I learn from this?</em> 🧠</p>
+</blockquote>
+<p>Creating a full content management system is not easy. You have to manage your database, have a seperate backend running to access it, of course you need the frontend...</p>
+<p>That is a <strong>big</strong> hassle!</p>
+<p>I always gravitated towards the simplicity of static websites. Why should I build a complex infrastructure where none is needed?</p>
+<p>With static html, css and javascript you do not have the problem of updating dependencies, relying on a framework like angular or react and so on. 🗽</p>
+<p>I know as software engineers we always try to use the newest and fanciest framework or library, but at what cost? You lose control over your DOM and have an absolute overkill of a project!</p>
+<p>But I didn&#39;t want to give away the power of a templating engine! The one <strong>major</strong> drawback of static sites is <strong>code duplication</strong>! You have to repeat your main layout in each and every file!</p>
+<p>So I saw the requirements and compromised to use a simple templating engine. </p>
+<p>I used a simple <code>express.js</code> server to dynamically serve my content with the <code>EJS</code> templating engine to build the view.</p>
+<p><em>But didn&#39;t I want an easy deployment? Now I have to run a webserver all over again!</em> 🤐</p>
+<p>Using a templating engine is beneficial in development but loses its use case for static websites after deploying. Thats why I decided to <strong>compile</strong> my express application to static html in the deployment step!</p>
+<p>For this I first needed the main render function for a specific EJS view 🚀</p>
+<pre><code class="language-js">const renderPage = async (view, data) =&gt; {
+    return await ejs.renderFile(&#39;src/layout/layout.ejs&#39;, {
+        view: view,
+        body: await ejs.renderFile(`src/views/${view}.ejs`, data)
+    });
+}
+</code></pre>
+<p>With this function I just need to search the views folder, render all the files and save it in the ouput folder!</p>
+<pre><code class="language-js">async function buildBlog() {
+    const posts = await loadPosts();
+    const tags = getUniqueTags(posts);
+
+    const postPromises = [];
+    await fs.mkdir(&#39;dest/posts/topics&#39;, {recursive: true});
+    postPromises.push(createTopic(posts, NO_FILTER, tags));
+    for(const tag of tags) {
+        postPromises.push(createTopic(posts, tag, tags));
+    }
+    for(const post of posts) {
+        postPromises.push(createPost(post));
+    }
+    await Promise.all(postPromises);
+}
+</code></pre>
+<p>This function retrieves all files from the posts folder and builds the filtered topic overview pages and the post pages itself. ⚙</p>
+<pre><code class="language-js">async function createPost(post) {
+    const html = await renderPage(&#39;blog/post&#39;, {post:post});
+    await fs.writeFile(`dest/posts/${post.filename}.html`, html);
+}
+
+async function createTopic(posts, tag, tags) {
+    if(tag)
+        posts = posts.filter(e =&gt; e.tags.includes(tag));
+
+    const html = await renderPage(&#39;blog/posts&#39;, {posts:posts, allTags: tags, currentTag: tag});
+    if(tag) {
+        await fs.writeFile(`dest/posts/topics/${tag}.html`, html);
+    } else {
+        await fs.writeFile(`dest/posts/index.html`, html);
+    }
+}
+</code></pre>
+<p>Finally the pages can be rendered and written to the destination folder. 🚀</p>
+<p>Building it by myself everytime I have changes, would be too much work. A <strong>github action</strong> is needed! 😋</p>
+<pre><code class="language-yaml">on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Push
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: &#39;18.x&#39;
+
+      - name: Install all dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Push
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: dest/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: &quot;Build: ({sha}) {msg}&quot;
+</code></pre>
+<p>On every push, the website gets compiled to <strong>static html</strong> and gets pushed to another branch.</p>
+<p>This also solves how to add new content on a static system - Just make a commit to the repository, which also has the advantages of <strong>automated backups</strong>. 🥳 </p>
+<p><code>Thanks Github!</code></p>
+<h2>Markdown templates</h2>
+<p>Writing blog posts in pure html is still too boring. It just has too much overhead!
+<strong>Markdown</strong> is a common interface that allows writing content in nearly plaintext. I&#39;m already compiling my website, so why can&#39;t I also add a markdown compilation step?</p>
+<p>Thankfully, there are a lot of libraries for compiling markdown to html ready to use. </p>
+<blockquote>
+<p><strong>The advantage of using the node ecosystem! 😁</strong></p>
+</blockquote>
+<pre><code class="language-js">function parsePost(filename, rawPost) {
+    const lines = rawPost.split(&#39;\n&#39;)
+
+    const parsedPost = new Post();
+    parsedPost.filename = filename;
+
+    parseMetadata(parsedPost, lines);
+
+    parsedPost.htmlContent = marked.parse(lines.join(&#39;\n&#39;));
+    return parsedPost;
+} 
+</code></pre>
+<p>Here, I am using the <a href="https://github.com/markedjs/marked">marked.js</a> npm package to parse my markdown files to html. </p>
+<h2>Stealing resources from GitHub</h2>
+<p>I am a student. I am poor. I do not want to rent a server to host my application! 💰💸</p>
+<p>That&#39;s another advantage of static html. You can basically <strong>host it anywhere you want</strong>! There are a lot of free providers, that serve your static files for you. 🤑</p>
+<p>Here, I am using <code>GitHub Pages</code>. The deployment action already copies the compiled files into another branch. I can just point github pages to this branch and tell it to deploy it. 🚀</p>
+<p>GitHub pages also offers the ability to serve the website with a <strong>custom domain</strong>. Thankfully I have one!</p>
+<p>Just add a <code>CNAME</code> dns record for your domain, that points to the github servers and add your domain in the repository settings. You can read more about this process in the <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">GitHub docs</a>.</p>
+<h2>Why you should not write your own blogging software!</h2>
+<p>As the post title already says, you should not write your own blogging software!
+It depends on what your goal is.</p>
+<blockquote>
+<p>Do you want to write blog posts?</p>
+<p>Do you want to write a blogging software?</p>
+</blockquote>
+<p>These are two very different goals. For me, I wanted to start writing blog posts, to learn more about writing and expressing myself.</p>
+<p>But of course you are reading this post, so I really wrote my own solution for this.</p>
+<p>If your goal is to just write blog posts, this is not the optimal path. You will get distracted by designing your system. You will forget to <strong>actually write blog posts</strong>.</p>
+<p>I opened the pull request for the blogging part of my website on <strong>January 25th</strong>. I just got to writing my first post on <strong>March 3rd</strong>!</p>
+<p>It was fun writing this piece of software, but if your endgoal really is just to write posts about things you find interesting, just do it and use some other tool!</p>
+<blockquote>
+<p>Getting started is always the hardest part!</p>
+</blockquote>
+<h2>Last Words</h2>
+<p>If you want to learn more about this project, visit my <a href="https://github.com/AlexMi-Ha/Website">GitHub repo</a>.</p>
+<p>In the future, I will post on a wide range of topics. But do not take them as too serious. I just try to have fun and practice my writing skills a bit.</p>
+<p>In the end, I&#39;m just a random dude on the internet, who loves shitposting, programming, music and cooking.</p>
+
+        </div>
+    </markdown>
+    <script src="/js/prism.js"></script>
+</article>
+
+
+        </div>
+        <footer>
+            <div class="footer-content low-opacity">
+                <div>
+                    <span>&copy; AlexMiHa</span>
+                    <span class="foot-dot">&middot;</span>
+                    <a href="/imprint">Imprint</a>
+                </div>
+                <div>
+                    <a class="icon-button" id="insta-link" target="_blank" href="https://www.instagram.com/alexmi_ha/"><img class="svg-content" alt="asd" src="/images/insta.svg"></a>
+                    <a class="icon-button" id="github-link" target="_blank" href="https://github.com/AlexMi-Ha"><img class="svg-content" alt="asd" src="/images/github-mark.svg"></a>
+                    <a class="icon-button" id="mail-link" target="_blank" href="mailto:alex@alexmiha.de"><img class="svg-content" alt="asd" src="/images/email.svg"></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
