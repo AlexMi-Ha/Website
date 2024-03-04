@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
     <head>
-        <title><%= view === 'index' ? 'Home' : view.charAt(0).toUpperCase() + view.slice(1) %> - AlexMiHa</title>
+        <title><%= view === 'index' ? 'Home' : view.includes('/') ? view.split('/')[1].charAt(0).toUpperCase() + view.split('/')[1].slice(1) : view.charAt(0).toUpperCase() + view.slice(1) %> - AlexMiHa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8" />
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <link rel="stylesheet" href="/css/style.css" />
         <link rel="stylesheet" href="/css/icons.css" />
         <link rel="stylesheet" href="/css/input.css" />
+        <% if(view.startsWith('blog')) {%>
+            <meta name="description" content='<%= meta %>'>
+            <link rel="stylesheet" href="/css/markdown.css" />
+            <link href="/css/prism.css" rel="stylesheet" />
+        <% } %>
         <script src="/js/cookie.js"></script>
         <script src="/js/theme.js"></script>
     </head>
     <body>
         <nav>
             <div class="nav-content">
-                <a class="icon-button" href="/"><img class="svg-content" src="images/logo.svg" alt="Logo"/></a>
+                <a class="icon-button" href="/"><img class="svg-content" src="/images/logo.svg" alt="Logo"/></a>
                 <div>
                     <div id="menu-links">
                         <a href="/" <%= view === 'index' ? 'class=primary' : '' %>>Home</a>
                         <a href="/about" <%= view === 'about' ? 'class=primary' : '' %>>About</a>
-                        <!-- <a href="/">Blog</a> -->
+                        <a href="/posts" <%= view.startsWith('blog') ? 'class=primary' : '' %>>Blog</a>
                         <a href="/portfolio" <%= view === 'portfolio' ? 'class=primary' : '' %>>Portfolio</a>
                         <a href="/contact" <%= view === 'contact' ? 'class=primary' : '' %>>Contact</a>
                     </div>
@@ -54,9 +59,9 @@
                     <a href="/imprint">Imprint</a>
                 </div>
                 <div>
-                    <a class="icon-button" id="insta-link" target="_blank" href="https://www.instagram.com/alexmi_ha/"><img class="svg-content" alt="asd" src="images/insta.svg"></a>
-                    <a class="icon-button" id="github-link" target="_blank" href="https://github.com/AlexMi-Ha"><img class="svg-content" alt="asd" src="images/github-mark.svg"></a>
-                    <a class="icon-button" id="mail-link" target="_blank" href="mailto:alex@alexmiha.de"><img class="svg-content" alt="asd" src="images/email.svg"></a>
+                    <a class="icon-button" id="insta-link" target="_blank" href="https://www.instagram.com/alexmi_ha/"><img class="svg-content" alt="asd" src="/images/insta.svg"></a>
+                    <a class="icon-button" id="github-link" target="_blank" href="https://github.com/AlexMi-Ha"><img class="svg-content" alt="asd" src="/images/github-mark.svg"></a>
+                    <a class="icon-button" id="mail-link" target="_blank" href="mailto:alex@alexmiha.de"><img class="svg-content" alt="asd" src="/images/email.svg"></a>
                 </div>
             </div>
         </footer>

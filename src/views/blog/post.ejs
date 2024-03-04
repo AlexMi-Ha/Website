@@ -1,0 +1,15 @@
+<article id="blogpost" class="content content-block place-top content-header">
+    <h2 class="text-center"><%= post.title %></h2>
+    <div class="text-center">
+        <img src="/images/alex.jpg" alt="A picture of the author" class="round" width="70" >
+        <p class="mt-p5">Alex Hagl</p>
+        <span class="border-top"><%= post.date.toLocaleString('default', { month: 'long', day:'numeric', year:'numeric' }) %></span>
+    </div>
+    <markdown>
+        <div>
+            <%- post.htmlContent %>
+        </div>
+    </markdown>
+    <script src="/js/prism.js"></script>
+</article>
+

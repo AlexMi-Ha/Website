@@ -1,0 +1,35 @@
+<article id="blogpost-list" class="content content-w-sidecol col-reverse place-top content-header">
+    
+    <aside id="topics-nav">
+        <h2>Filter Topics</h2>
+        <div class="project-tags">
+            <a href="/posts" class="tag<%= currentTag == '' ? ' active' : ''%>"> All Topics </a>
+            <div class="flex-break"></div> <!-- break -->
+            <% for(let tag of allTags) {%>
+                <a href=<%= "/posts/topics/" + tag%> class="tag<%= currentTag == tag ? ' active' : ''%>"> <%= tag%> </a>
+            <% } %>
+        </div>
+    </aside>
+
+    <section id="posts-section width-100">
+
+        <% for(let i=0; i<posts.length; ++i) {%>
+            <div class="project-card width-100">
+                <img class="project-image" loading="lazy" src=<%= posts[i].titleImage%> alt="post-image">
+                <div class="project-info">
+                    <h3><a href=<%= "/posts/" + posts[i].filename%>><%= posts[i].title%></a></h3>
+                    <span class="low-opacity"><%= posts[i].date.toLocaleString('default', { month: 'short', day:'numeric', year:'numeric' })%></span>
+                    <p class="low-opacity"><%= posts[i].summary%></p>
+                    <div class="project-tags">
+
+                        <% for(let j=0; j<posts[i].tags.length; ++j) {%>
+                            <a href=<%= "/posts/topics/" + posts[i].tags[j]%> class="tag"> <%= posts[i].tags[j]%> </a>
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+        <% } %>
+
+    </section>
+</article>
