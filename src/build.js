@@ -53,7 +53,7 @@ async function buildBlog() {
 }
 
 async function createPost(post) {
-    const html = await renderPage('blog/post', {post:post, meta:post.summary});
+    const html = await renderPage('blog/post', {post:post, meta:post.summary, title: post.title});
     await fs.writeFile(`dest/posts/${post.filename}.html`, html);
 }
 

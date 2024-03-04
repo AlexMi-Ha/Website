@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
     <head>
+        <% if(title) {%>
+            <title><%=title%> - AlexMiHa</title>
+        <% } else { %>
         <title><%= view === 'index' ? 'Home' : view.includes('/') ? view.split('/')[1].charAt(0).toUpperCase() + view.split('/')[1].slice(1) : view.charAt(0).toUpperCase() + view.slice(1) %> - AlexMiHa</title>
+        <% } %>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8" />
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico">

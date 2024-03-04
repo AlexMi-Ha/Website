@@ -7,12 +7,14 @@ const renderPage = async (view, data) => {
         return await ejs.renderFile('src/layout/layout.ejs', {
             view: view,
             body: await ejs.renderFile(`src/views/${view}.ejs`, data),
-            meta: data.meta ?? ''
+            meta: data.meta ?? '',
+            title: data.title
         });
     }
     return await ejs.renderFile('src/layout/layout.ejs', {
         view: view,
-        body: await ejs.renderFile(`src/views/${view}.ejs`)
+        body: await ejs.renderFile(`src/views/${view}.ejs`),
+        title: undefined
     });
 }
 
