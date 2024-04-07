@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+        
+            <title>How to keep motivated as a software engineer - AlexMiHa</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/icons.css" />
+        <link rel="stylesheet" href="/css/input.css" />
+        
+            <meta name="description" content='Tips and tricks on how to set yourself goals and keep focused as a software engineer.'>
+            <link rel="stylesheet" href="/css/markdown.css" />
+            <link href="/css/prism.css" rel="stylesheet" />
+        
+        <script src="/js/cookie.js"></script>
+        <script src="/js/theme.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-content">
+                <a class="icon-button" href="/"><img class="svg-content" src="/images/logo.svg" alt="Logo"/></a>
+                <div>
+                    <div id="menu-links">
+                        <a href="/" >Home</a>
+                        <a href="/about" >About</a>
+                        <a href="/posts" class=primary>Blog</a>
+                        <a href="/portfolio" >Portfolio</a>
+                        <a href="/contact" >Contact</a>
+                    </div>
+                    <button id="theme-switcher" class="dark" aria-label="switch theme"><span class="ti ti-light-darkmode"></span></button>
+                    <button id="nav-toggle" aria-label="toggle mobile navigation"><span class="ti ti-menu-2"></span></button>
+                    <script>
+                        document.getElementById('nav-toggle').addEventListener('click', function () {
+                            const menu = document.getElementById('menu-links');
+                            const buttonDisplay = this.lastElementChild;
+                            if(menu.classList.contains('active')) {
+                                menu.classList.remove('active');
+                                buttonDisplay.classList.remove('ti-x')
+                                buttonDisplay.classList.add('ti-menu-2');
+                            }else {
+                                menu.classList.add('active');
+                                buttonDisplay.classList.add('ti-x')
+                                buttonDisplay.classList.remove('ti-menu-2');
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+        </nav>
+        <div class="wrapper">
+            <article id="blogpost" class="content content-block place-top content-header">
+    <h2 class="text-center">How to keep motivated as a software engineer</h2>
+    <div class="text-center">
+        <img src="/images/alex.jpg" alt="A picture of the author" class="round" width="70" >
+        <p class="mt-p5">Alex Hagl</p>
+        <span class="border-top">April 7, 2024</span>
+    </div>
+    <markdown>
+        <div>
+            <p>We all know it and have experienced it - free time is a valuable resource ⏳. I&#39;m in the 6th semester of my computer science degree and have little to no time to work on my personal projects.</p>
+<p>With as little of time that is left from the stressful day-to-day life, it is important to maximize not only what actually gets done, but most importantly to have as much fun as possible and to learn something in the progress. 🧠</p>
+<p>Today I have compiled a small list of tips and tricks I use daily to keep my learning journey running and to stay motivated developing software. 🚀</p>
+<h2><a name="section-the-deadline-is-coming-" class="anchor" href="#section-the-deadline-is-coming-"><span class="header-link"></span></a>The deadline is coming!</h2><p>16! I have 16 dead projects on my hard drive. And that is without the unfinished projects I have collected on GitHub 💀 -  Why is that?</p>
+<p>When I compare my finished projects and most of my unfinished projects there is a clear difference between the two.</p>
+<p>Most of my finished projects were planned through. I have set myself specific goals to reach in a specific time frame. 🏁</p>
+<blockquote>
+<p>You may have heard of SMART goals.</p>
+</blockquote>
+<p>SMART goals stand for goals that are <em>specific</em>, <em>measurable</em>, <em>achievable</em>, <em>relevant</em> and most importantly <em>time-bound</em>.</p>
+<p>Whenever I start a new project, I try my best to keep notes on the most important features I want to implement, a rough roadmap of development and how long I am committing my time to this project. I try to first define what I want out of this project and how it integrates into my ecosystem.</p>
+<p>With this I have automatic <em>&#39;scheduling&#39;</em> for my projects, on which project I will work on and when I can start new projects.</p>
+<blockquote>
+<p>And we both know working with a deadline is where most work gets done 👀</p>
+</blockquote>
+<h2><a name="section-collaborate-with-others" class="anchor" href="#section-collaborate-with-others"><span class="header-link"></span></a>Collaborate with others</h2><p>Building projects with others significantly boosts your experience and motivation by a lot. I work well when collaborating with others as I know that they depend on me getting my work done. This boosts the motivation to put work into the project. 🎈</p>
+<p><em>Collaborating with others</em> does not only mean contributing to open source here as many other people say you should do.</p>
+<p>Collaborating with others means starting some projects with a few friends. You don&#39;t even have to search for developers better than you. The senior-junior developer and mentoring mindset does make sense, especially when starting out. But building a project, where you are the &#39;senior developer&#39; does improve your engineering skills. What most people miss out on is learning how to properly <strong>start</strong> a project. When you &#39;lead&#39; your project team, you learn a lot of different skills like architecture, design patterns and choosing the right tools. Plus you learn a lot about project management and leading a team. </p>
+<p>Working on projects with other people helps me to stay motivated and not abandon another project to ✨the bottom of my GitHub repo list✨. </p>
+<h2><a name="section-learn-something-new" class="anchor" href="#section-learn-something-new"><span class="header-link"></span></a>Learn something new</h2><p>When I choose projects to develop, a big factor in the decision is building something, which I will learn a lot from 💡</p>
+<p>I try to either explore and set my focus on a topic in software engineering or infrastructure that I want to improve in or to switch up my default tools and maybe use a different database or a different language. 🔀</p>
+<p>That way, developing a web service for the thousandth time does not get boring but is another challenge in itself which results in a lot of motivation going to the project.</p>
+<h2><a name="section-keep-a-list" class="anchor" href="#section-keep-a-list"><span class="header-link"></span></a>Keep a list</h2><p>When I was in my 4th and 5th year of learning programming I had a phase where I had no more projects to work on. I ran out of ideas on what to develop - I had no need for any more software.</p>
+<p>Nowadays, I have set myself the <em>simple</em> goal of building my own software ecosystem to use in my private homelab 👩‍💻.</p>
+<p>With such a goal, thousands of projects fall out:</p>
+<ul>
+<li>How can I authenticate to each service -&gt; Create an Identity Server 🔐</li>
+<li>How can I manage my logs -&gt; Logging Software 📝</li>
+<li>Oh no, I have too many passwords -&gt; Password Manager 🔒</li>
+<li>I want to sync my passwords ONLY in my local network -&gt; Distributed Database Design 💾</li>
+</ul>
+<p>...and so on. I keep all of these ideas I have for expanding my ecosystem in a big list. If I want to start a new project I have a lot of ideas lined up in the queue.</p>
+<p>Working on a simple, defined and attractive goal of (in my example) hosting a private software ecosystem provided me with a lot of projects to build and a lot of lessons to learn.</p>
+<p>Many would say <em>&quot;Don&#39;t reinvent the wheel&quot;</em>, I say <em>&quot;Reinvent the wheel and learn something from it&quot;</em>. You will make errors, but you can compare your solutions to how others have solved the problem and for me, that is a lot of fun! 😁</p>
+<h2><a name="section-gotta-have-them-metrics" class="anchor" href="#section-gotta-have-them-metrics"><span class="header-link"></span></a>Gotta have them metrics</h2><p>The final trick I use to stay motivated is to always track some kind of metric on how much I got done.</p>
+<p>For me, this is my GitHub contribution chart.</p>
+<blockquote>
+<p>I wouldn&#39;t say I&#39;m a competitive person. 🐷<br>
+~ Technoblade</p>
+</blockquote>
+<p>I like to look at my contribution chart and see <em>&quot;Oh cool, on this day I&#39;ve gotten to 50 commits!&quot;</em>. 🚀 It fires up my inner gamer and motivates me to maximize productivity based on my contribution chart.</p>
+<p>Of course, this is not the only metric you could use - in fact, it probably isn&#39;t the best either. You can use anything that keeps track of how much you have accomplished like completed tickets or something similar.</p>
+<h2><a name="section-last-words" class="anchor" href="#section-last-words"><span class="header-link"></span></a>Last Words</h2><p>Those were a few of my tips and tricks on how I stay motivated to develop software.</p>
+<p>But always keep in mind: if something you do to force yourself to do more coding is too much for you and drains your motivation you can just try some other method.</p>
+<p>The main focus should always be fun - Having fun coding and creating software is the most important thing as a software engineer. 🔥</p>
+
+        </div>
+    </markdown>
+    <script src="/js/prism.js"></script>
+</article>
+
+
+        </div>
+        <footer>
+            <div class="footer-content low-opacity">
+                <div>
+                    <span>&copy; AlexMiHa</span>
+                    <span class="foot-dot">&middot;</span>
+                    <a href="/imprint">Imprint</a>
+                </div>
+                <div>
+                    <a class="icon-button" id="insta-link" target="_blank" href="https://www.instagram.com/alexmi_ha/"><img class="svg-content" alt="asd" src="/images/insta.svg"></a>
+                    <a class="icon-button" id="github-link" target="_blank" href="https://github.com/AlexMi-Ha"><img class="svg-content" alt="asd" src="/images/github-mark.svg"></a>
+                    <a class="icon-button" id="mail-link" target="_blank" href="mailto:alex@alexmiha.de"><img class="svg-content" alt="asd" src="/images/email.svg"></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

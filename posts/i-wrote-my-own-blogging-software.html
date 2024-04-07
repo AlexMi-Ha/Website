@@ -67,8 +67,7 @@
 <p>Hello there,</p>
 <p>I&#39;ve finally gotten around to writing the first blogpost on my website. Finally getting a use out of the blogging software I wrote exactly for this purpose 🥳.</p>
 <p>In this post I will tell you something about <strong>my journey</strong> of writing this piece of software and my <strong>hurdles</strong> along the way! 👀</p>
-<h2>Static sites for the win</h2>
-<p>I thought long about what tech stack to use for this project.</p>
+<h2><a name="section-static-sites-for-the-win" class="anchor" href="#section-static-sites-for-the-win"><span class="header-link"></span></a>Static sites for the win</h2><p>I thought long about what tech stack to use for this project.</p>
 <blockquote>
 <p><em>Do I want the maintainability of a full cms?</em> ⚙</p>
 <p><em>Where do I want to host this?</em> 💻</p>
@@ -166,8 +165,7 @@ jobs:
 <p>On every push, the website gets compiled to <strong>static html</strong> and gets pushed to another branch.</p>
 <p>This also solves how to add new content on a static system - Just make a commit to the repository, which also has the advantages of <strong>automated backups</strong>. 🥳 </p>
 <p><code>Thanks Github!</code></p>
-<h2>Markdown templates</h2>
-<p>Writing blog posts in pure html is still too boring. It just has too much overhead!
+<h2><a name="section-markdown-templates" class="anchor" href="#section-markdown-templates"><span class="header-link"></span></a>Markdown templates</h2><p>Writing blog posts in pure html is still too boring. It just has too much overhead!
 <strong>Markdown</strong> is a common interface that allows writing content in nearly plaintext. I&#39;m already compiling my website, so why can&#39;t I also add a markdown compilation step?</p>
 <p>Thankfully, there are a lot of libraries for compiling markdown to html ready to use. </p>
 <blockquote>
@@ -186,14 +184,12 @@ jobs:
 } 
 </code></pre>
 <p>Here, I am using the <a href="https://github.com/markedjs/marked">marked.js</a> npm package to parse my markdown files to html. </p>
-<h2>Stealing resources from GitHub</h2>
-<p>I am a student. I am poor. I do not want to rent a server to host my application! 💰💸</p>
+<h2><a name="section-stealing-resources-from-github" class="anchor" href="#section-stealing-resources-from-github"><span class="header-link"></span></a>Stealing resources from GitHub</h2><p>I am a student. I am poor. I do not want to rent a server to host my application! 💰💸</p>
 <p>That&#39;s another advantage of static html. You can basically <strong>host it anywhere you want</strong>! There are a lot of free providers, that serve your static files for you. 🤑</p>
 <p>Here, I am using <code>GitHub Pages</code>. The deployment action already copies the compiled files into another branch. I can just point github pages to this branch and tell it to deploy it. 🚀</p>
 <p>GitHub pages also offers the ability to serve the website with a <strong>custom domain</strong>. Thankfully I have one!</p>
 <p>Just add a <code>CNAME</code> dns record for your domain, that points to the github servers and add your domain in the repository settings. You can read more about this process in the <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">GitHub docs</a>.</p>
-<h2>Why you should not write your own blogging software!</h2>
-<p>As the post title already says, you should not write your own blogging software!
+<h2><a name="section-why-you-should-not-write-your-own-blogging-software-" class="anchor" href="#section-why-you-should-not-write-your-own-blogging-software-"><span class="header-link"></span></a>Why you should not write your own blogging software!</h2><p>As the post title already says, you should not write your own blogging software!
 It depends on what your goal is.</p>
 <blockquote>
 <p>Do you want to write blog posts?</p>
@@ -207,8 +203,7 @@ It depends on what your goal is.</p>
 <blockquote>
 <p>Getting started is always the hardest part!</p>
 </blockquote>
-<h2>Last Words</h2>
-<p>If you want to learn more about this project, visit my <a href="https://github.com/AlexMi-Ha/Website">GitHub repo</a>.</p>
+<h2><a name="section-last-words" class="anchor" href="#section-last-words"><span class="header-link"></span></a>Last Words</h2><p>If you want to learn more about this project, visit my <a href="https://github.com/AlexMi-Ha/Website">GitHub repo</a>.</p>
 <p>In the future, I will post on a wide range of topics. But do not take them as too serious. I just try to have fun and practice my writing skills a bit.</p>
 <p>In the end, I&#39;m just a random dude on the internet, who loves shitposting, programming, music and cooking.</p>
 
