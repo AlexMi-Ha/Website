@@ -1,5 +1,20 @@
 const marked = require("marked");
 
+marked.use({
+    extensions: [{
+        name: 'heading',
+        renderer(token) {
+            const text = token.text;
+            const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+            const level = token.depth;
+            return `<h${level}><a name="section-${escapedText}" class="anchor" href="#section-${escapedText}"><span class="header-link"></span></a>${text}</h${level}>`;
+        }
+    }]
+});
+
+console.log(marked.parse('# heading +'))
+
+
 class Post {
 
     constructor(filename, title, summary, titleImage, date, tags, htmlContent) {
