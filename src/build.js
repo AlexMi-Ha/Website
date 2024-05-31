@@ -42,7 +42,7 @@ async function buildBlog() {
     const postPromises = [];
     await fs.mkdir('dest/posts/topics', {recursive: true});
     // unfiltered topic
-    postPromises.push(createTopic(posts, undefined, tags));
+    postPromises.push(createTopic(posts, '', tags));
     for(const tag of tags) {
         postPromises.push(createTopic(posts, tag, tags));
     }

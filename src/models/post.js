@@ -12,8 +12,6 @@ marked.use({
     }]
 });
 
-console.log(marked.parse('# heading +'))
-
 
 class Post {
 

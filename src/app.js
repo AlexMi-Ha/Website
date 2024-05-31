@@ -36,14 +36,17 @@ app.get('/imprint', async (_,res) => {
 
 
 app.get('/posts', async (req, res) => {
+    posts = await loadPosts();
     res.send(await renderPage('blog/posts', {posts: posts, allTags: allTags, currentTag: ''}));
 });
 
 app.get('/posts/topics/:topicId', async(req,res) => {
+    posts = await loadPosts();
     res.send(await renderPage('blog/posts', {posts: posts.filter(e => e.tags.includes(req.params.topicId)), allTags: allTags,currentTag: req.params.topicId}));
 });
 
 app.get('/posts/:postId', async(req,res) => {
+    posts = await loadPosts();
     res.send(await renderPage('blog/post', {post: posts.filter(e => e.filename == req.params.postId)[0]}));
 });
 
