@@ -341,12 +341,11 @@ footer .footer-content div a {
 }
 
 .project-info h3, .project-info h3 a {
-    color: var(--primary);
     margin-bottom: 8px;
 }
 
-.project-info h3 a {
-    text-decoration: underline;
+.project-info:hover h3, .project-info:hover a {
+    color: var(--primary);
 }
 
 .project-info p {

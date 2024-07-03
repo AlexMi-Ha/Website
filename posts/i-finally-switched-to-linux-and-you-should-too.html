@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+        
+            <title>I switched to Linux and why you should too - AlexMiHa</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/icons.css" />
+        <link rel="stylesheet" href="/css/input.css" />
+        
+            <meta name="description" content='Here I share my reasons and experiences on switching my setup to run linux.'>
+            <link rel="stylesheet" href="/css/markdown.css" />
+            <link href="/css/prism.css" rel="stylesheet" />
+        
+        <script src="/js/cookie.js"></script>
+        <script src="/js/theme.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-content">
+                <a class="icon-button" href="/"><img class="svg-content" src="/images/logo.svg" alt="Logo"/></a>
+                <div>
+                    <div id="menu-links">
+                        <a href="/" >Home</a>
+                        <a href="/about" >About</a>
+                        <a href="/posts" class=primary>Blog</a>
+                        <a href="/portfolio" >Portfolio</a>
+                        <a href="/contact" >Contact</a>
+                    </div>
+                    <button id="theme-switcher" class="dark" aria-label="switch theme"><span class="ti ti-light-darkmode"></span></button>
+                    <button id="nav-toggle" aria-label="toggle mobile navigation"><span class="ti ti-menu-2"></span></button>
+                    <script>
+                        document.getElementById('nav-toggle').addEventListener('click', function () {
+                            const menu = document.getElementById('menu-links');
+                            const buttonDisplay = this.lastElementChild;
+                            if(menu.classList.contains('active')) {
+                                menu.classList.remove('active');
+                                buttonDisplay.classList.remove('ti-x')
+                                buttonDisplay.classList.add('ti-menu-2');
+                            }else {
+                                menu.classList.add('active');
+                                buttonDisplay.classList.add('ti-x')
+                                buttonDisplay.classList.remove('ti-menu-2');
+                            }
+                        })
+                    </script>
+                </div>
+            </div>
+        </nav>
+        <div class="wrapper">
+            <article id="blogpost" class="content content-block place-top content-header">
+    <h2 class="text-center">I switched to Linux and why you should too</h2>
+    <div class="text-center">
+        <img src="/images/alex.jpg" alt="A picture of the author" class="round" width="70" >
+        <p class="mt-p5">Alex Hagl</p>
+        <span class="border-top">July 3, 2024</span>
+    </div>
+    <markdown>
+        <div>
+            <p>Sooo 👋,</p>
+<p>a month ago I finally made the switch to a Linux based operating system 🐧.</p>
+<p>I was a Windows user since I got my first computer and played with the thought of switching to Linux every now and then. But the last few years this voice became louder and louder and now, finally, I made the big change 🎈.</p>
+<h2><a name="section-the-microsoft-disaster" class="anchor" href="#section-the-microsoft-disaster"><span class="header-link"></span></a>The Microsoft disaster</h2><p>For everyone active in the tech community this change does not come as a surprise. </p>
+<p>A few weeks ago, Microsoft announced their newest shenanigans - Microsoft Recall targeted for the new Copilot+ AI powered laptop. Recall is one of those products that sound really cool, but considering the current threat level in the tech community, this feature is an absolute no-go if distributed as closed source 😱.</p>
+<p>For those not familiar with Microsoft Recall yet, it enables the user to <strong>search through their activity on the computer using AI</strong>. If you know you have visited a website with a picture of a goose in the past, you can search for goose and Recall finds the program and website used at the time 🪿. To achieve this, Recall periodically saves screenshots and metadata of the stuff you look at. This of course includes passwords, sensitive data like images or personal documents and all cat-picture websites you visit on your computer 🧡🖤.</p>
+<p>Microsoft claims that Recall saves the captured data <em>locally only</em> on the machine in an <em>encrypted</em> format. <strong>BUT</strong>, as this data can be accessed through Recall itself, the information on how to decrypt this data must also be stored locally. This means, that if the encryption cannot be avoided in other ways, a hacker which has access to your machine can just use Recall to search through this history, making you <strong>vulnerable</strong> to targeted <strong>ads</strong>, <strong>social engineering</strong>, <strong>ransom</strong>, <strong>identity theft</strong>, and much much more.</p>
+<p>It is good, that the data is stored locally - <em>FOR NOW</em>. In my opinion, and I&#39;m <a href="https://youtu.be/2-z-iwfPslI?si=j1Gj1CpZuXJry0wR&t=890">not the only one with this concern</a>, this will definitly not stay this way, in the future this <em>WILL</em> be synced to the cloud or sent to a server for processing, due to the hardware requirements for such AI models.</p>
+<p>This feature is especially dangerous for kids, elders and other non-tech savvy users, because they cannot or do not want to grasp the <strong>major security implications</strong>.</p>
+<p>If any other company would release such an application, this would definitly be considered potential spyware 🕵.</p>
+<p>Thankfully, after the massive backlash Microsoft got from the IT-Security community, they delayed this feature until current flaws are fixed. But as it is standing now, it still will be coming! In my opinion, the trust to the Windows team of Microsoft is long gone and going forward I will try to avoid this operating system as much as possible.</p>
+<p><strong>So if you are reading this and know of any non-tech savvy users in your environment, PLEASE, warn them of this feature and help them disable it, when it arrives or even better help them switch to Linux (e.g Linux Mint). And if they answer &quot;I have nothing to hide&quot; they should definitely leave the front door of their house unlocked and open 24/7 as they have nothing to hide anyways.</strong></p>
+<blockquote>
+<p>Thanks For Coming To My TED Talk 🙃</p>
+</blockquote>
+<h2><a name="section-i-don-t-use-arch-btw-" class="anchor" href="#section-i-don-t-use-arch-btw-"><span class="header-link"></span></a>I don't use Arch, btw.</h2><p>Now, the important question: <em>What distribution will I be using?</em></p>
+<p>Many distributions have close to a <strong>religion-like following</strong> 😶‍🌫️. For me, I wanted an operating system, that <strong>does not stand in my way of doing things</strong>. In the past I looked at <em>Ubuntu, Fedora and Linux Mint</em>. With those distros being very mainstream, I read, that there is a minimized chance of missing drivers or incompatibilities 🚀.</p>
+<p>I&#39;ve heard from a few people that they really like the <em>Gnome window manager</em>, so I narrowed my selection to Ubuntu and Fedora. I then tried both distros in a virtual machine, which OS fits best to me and finally I stuck with <strong>Ubuntu</strong> 🎉.</p>
+<p>The vanilla Gnome experience in Fedora is nice but I like the custom Gnome and the dock in Ubuntu more.</p>
+<h2><a name="section-which-filesystem-is-best-" class="anchor" href="#section-which-filesystem-is-best-"><span class="header-link"></span></a>Which filesystem is best?</h2><p>As the standard Windows file system <a href="https://en.wikipedia.org/wiki/NTFS">NTFS</a> is <strong>proprietary and closed source</strong>, the existing Linux drivers for NTFS are community made and reverse engineered. The implementation is not based on a specification which means that there could be <strong>incompatibilities</strong> or even <strong>bugs</strong> 🪲.</p>
+<p>Therefore, I went through my hard drives, deleted stuff I didn&#39;t need anymore, backed up files I wanted to save and reformated the drives to the <a href="https://en.wikipedia.org/wiki/Ext4">ext4</a> filesystem.</p>
+<p>All of my drives except two. On one SSD, I cloned my Windows system drive, so I can have a dual boot setup if at any point I need to go back to my Windows installation. Additionally, I kept one 1 TB HDD on NTFS for Windows file storage.</p>
+<p>That leaves the rest of the drives and my M.2 NVME SSD free for my Ubuntu installation and storage space in <strong>ext4</strong> 🎈.</p>
+<h2><a name="section-driver-i-hardly-know-her-" class="anchor" href="#section-driver-i-hardly-know-her-"><span class="header-link"></span></a>Driver? I hardly know her!</h2><p>I&#39;ve heard a lot of horror stories of incompatibilities on Linux with basically everything.</p>
+<p><img src="/images/posts/a224cb67-e299-476f-a219-08d2db1d67f4.jpg" alt="Linux user sending an email meme"></p>
+<p>But with current versions of Ubuntu (24.04 LTS) there were basically no problems yet 🗿. My NVIDIA Graphics card and all of my Hardware worked out of the box and installing programs is as easy as on Windows.</p>
+<p>Even gaming works better than expected. These last few years, VALVE, the company behind the game platform Steam, invested a lot of time into a compatibility layer called Proton, which lets you play Windows only games on Linux as well.</p>
+<p>Of course there is the problem of some other software such as Adobe not being available on Linux. I haven&#39;t looked into WINE or Bottles yet, but in an emergency (which hasn&#39;t happened yet) I could just boot into Windows for that task. Meanwhile, I started getting used to using <a href="https://github.com/Diolinux/PhotoGIMP">PhotoGIMP</a> as a replacement for Photoshop.</p>
+<h2><a name="section-conclusion" class="anchor" href="#section-conclusion"><span class="header-link"></span></a>Conclusion</h2><p>I waited a very long time to finally make the switch to Linux Desktop and I&#39;m very happy with how everything works!</p>
+<p>I basically have all features I really need for my dev workflows and I&#39;m getting a lot of quality of life improvements, that come with the improved configurations possible on linux.</p>
+<p>Finally, even if this post seemed to basically hate on Microsoft, I actually really like the software Microsoft creates - limited to development software, of course.
+As is quite obvious, I really love products such as .NET or VSCode and I&#39;m very thankful of the fusion of Xamarin and .NET, that I can still use the .NET and C# ecosystem on Linux to develop my Software.</p>
+<p>Aaaaaaand the compulsory neofetch screenshot:
+<img src="/images/posts/f1e39ffa-b36f-43ce-b098-5eda9ab293fd.webp" alt="Neofetch"></p>
+
+        </div>
+    </markdown>
+    <script src="/js/prism.js"></script>
+</article>
+
+
+        </div>
+        <footer>
+            <div class="footer-content low-opacity">
+                <div>
+                    <span>&copy; AlexMiHa</span>
+                    <span class="foot-dot">&middot;</span>
+                    <a href="/imprint">Imprint</a>
+                </div>
+                <div>
+                    <a class="icon-button" id="insta-link" target="_blank" href="https://www.instagram.com/alexmi_ha/"><img class="svg-content" alt="asd" src="/images/insta.svg"></a>
+                    <a class="icon-button" id="github-link" target="_blank" href="https://github.com/AlexMi-Ha"><img class="svg-content" alt="asd" src="/images/github-mark.svg"></a>
+                    <a class="icon-button" id="mail-link" target="_blank" href="mailto:alex@alexmiha.de"><img class="svg-content" alt="asd" src="/images/email.svg"></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
