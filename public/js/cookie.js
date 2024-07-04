@@ -1,11 +1,19 @@
-function setCookie(cname, cvalue, exdays) {
+function setCookie(cname, cvalue, exdays, path = "/") {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     const expires = "expires="+d.toUTCString();
     const domain = getCookieDomain();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;" + domain + ";";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=" + path + ";" + domain + ";";
 }
   
+function deleteCookie(cname, path = "/") {
+    const d = new Date();
+    d.setTime(d.getTime() - (24 * 60 * 60 * 1000));
+    const expires = "expires="+d.toUTCString();
+    const domain = getCookieDomain();
+    document.cookie = cname + "=;" + expires + ";path=" + path + ";" + domain + ";";
+}
+
 function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
@@ -22,5 +30,5 @@ function getCookie(cname) {
 }
 
 function getCookieDomain() {
-    return ".127.0.0.1";
+    return "alexmiha.de";
 }

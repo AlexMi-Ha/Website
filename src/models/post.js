@@ -17,7 +17,8 @@ console.log(marked.parse('# heading +'))
 
 class Post {
 
-    constructor(filename, title, summary, titleImage, date, tags, htmlContent) {
+    constructor(id, filename, title, summary, titleImage, date, tags, htmlContent) {
+        this.id = id;
         this.filename = filename;
         this.title = title;
         this.summary = summary;
@@ -43,6 +44,8 @@ function parsePost(filename, rawPost) {
             parsedPost.title = metaLine.substring("Title:".length).trim();
         }else if(metaLine.startsWith("Summary:")) {
             parsedPost.summary = metaLine.substring("Summary:".length).trim();
+        }else if(metaLine.startsWith("Id:")) {
+            parsedPost.id = metaLine.substring("Id:".length).trim();
         }else if(metaLine.startsWith("TitleImage:")) {
             parsedPost.titleImage = metaLine.substring("TitleImage:".length).trim();
         }else if(metaLine.startsWith("Date:")) {
