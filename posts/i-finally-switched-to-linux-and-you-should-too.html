@@ -56,7 +56,8 @@
     <div class="text-center">
         <img src="/images/alex.jpg" alt="A picture of the author" class="round" width="70" >
         <p class="mt-p5">Alex Hagl</p>
-        <span class="border-top">July 3, 2024</span>
+        <span class="border-top">July 3, 2024</span><br>
+        <span><span class="ti ti-eye"></span> <span id="view-span"></span> | <button type="button" id="like-button" class="nobutton"><span class="ti ti-heart"></span> <span id="like-span"></span></button></span>
     </div>
     <markdown>
         <div>
@@ -98,6 +99,86 @@ As is quite obvious, I really love products such as .NET or VSCode and I&#39;m v
         </div>
     </markdown>
     <script src="/js/prism.js"></script>
+    <script>
+        const viewSpan = document.getElementById('view-span');
+        const likeSpan = document.getElementById('like-span');
+        const likeButton = document.getElementById('like-button');
+        const postId = '3';
+        let liked = !!getCookie('liked');
+
+        fetch('http://api.alexmiha.de/blog/visit.php?id=' + postId);
+
+        fetch('http://api.alexmiha.de/blog/poststats.php?id=' + postId)
+            .then(e => e.json())
+            .then(e => {
+                viewSpan.innerText = formatNumber(e['visits']);
+                likeSpan.innerText = formatNumber(e['likes']);
+            })
+            .catch(e => {
+                console.log(e)
+                viewSpan.innerText = '-';
+                likeSpan.innerText = '-';
+            })
+
+        if(liked) {
+            likeButton.classList.add('active');
+            likeButton.title = 'Click to unlike the post';
+        }else {
+            likeButton.title = 'Click to like the post';
+        }
+
+        likeButton.onclick = async () => {
+            likeButton.disabled = true;
+            let promise;
+            if(liked) {
+                promise = fetch('http://api.alexmiha.de/blog/unlike.php?id='+ postId)
+                    .then(e => {
+                        if(!e.ok)
+                            throw new Error();
+                    })
+                    .then(_ => {
+                        deleteCookie('liked', window.location.pathname);
+                        likeButton.classList.remove('active');
+                        likeButton.title = 'Click to like the post';
+                        likeSpan.innerText = Math.max(+likeSpan.innerText - 1, 0);
+                        liked = false;
+                    });
+                }else {
+                    promise = fetch('http://api.alexmiha.de/blog/like.php?id='+ postId)
+                    .then(e => {
+                        if(!e.ok)
+                        throw new Error();
+                })
+                .then(_ => {
+                    setCookie('liked', '1', 1825, window.location.pathname)
+                    likeButton.classList.add('active');
+                    likeButton.title = 'Click to unlike the post';
+                    likeSpan.innerText = +likeSpan.innerText + 1;
+                    liked = true;
+                });
+            }
+
+            promise.catch(_ => {
+                console.error("Failed like operation");
+            }).finally(_ => {
+                likeButton.disabled = false;
+            });
+        }
+
+
+        function formatNumber(num) {
+            const lookup = [
+                { value: 1, symbol: "" },
+                { value: 1e3, symbol: "k" },
+                { value: 1e6, symbol: "M" },
+                { value: 1e9, symbol: "B" },
+                { value: 1e12, symbol: "T" },
+            ];
+            const regexp = /\.0+$|(?<=\.[0-9]*[1-9])0+$/;
+            const item = lookup.findLast(item => num >= item.value);
+            return item ? (num / item.value).toFixed(1).replace(regexp, "").concat(item.symbol) : "0";
+        }
+    </script>
 </article>
 
 

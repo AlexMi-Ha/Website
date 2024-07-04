@@ -22,6 +22,15 @@
     content: "\eae5";
 }
 
+.ti-heart::before {
+    content: "\eabe";
+}
+
+.active .ti-heart::before {
+    content: "\f67c";
+    color: var(--primary);
+}
+
 .ti-search:before {
     content: "\eb1c"
 }

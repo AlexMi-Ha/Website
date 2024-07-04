@@ -402,6 +402,15 @@ a.tag.tag.tag {
     height: 0;
 }
 
+button.nobutton {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--text);
+    font-size: var(--font-size--default);
+}
+
 @media screen and (max-width: 1017px) {
 
     .image-section img {
