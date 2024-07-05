@@ -6,7 +6,12 @@ const { renderPage, loadPosts } = require('./renderer');
 async function renderFile(file) {
     const view = file.split('.')[0];
     const html = await renderPage(view);
-    await fs.writeFile(`dest/${view}.html`, html);
+    if(view == 'index') {
+        await fs.writeFile(`dest/index.html`, html);
+    }else {
+        await fs.mkdir(`dest/${view}`)
+        await fs.writeFile(`dest/${view}/index.html`, html);
+    }
 }
 
 (async () => {
@@ -54,7 +59,8 @@ async function buildBlog() {
 
 async function createPost(post) {
     const html = await renderPage('blog/post', {post:post, meta:post.summary, title: post.title});
-    await fs.writeFile(`dest/posts/${post.filename}.html`, html);
+    await fs.mkdir(`dest/posts/${post.filename}`)
+    await fs.writeFile(`dest/posts/${post.filename}/index.html`, html);
 }
 
 async function createTopic(posts, tag, tags) {
@@ -63,7 +69,8 @@ async function createTopic(posts, tag, tags) {
     const topicSummary = 'A collection of my blog posts';
     const html = await renderPage('blog/posts', {posts:posts, allTags: tags, currentTag: tag, meta: topicSummary});
     if(tag) {
-        await fs.writeFile(`dest/posts/topics/${tag}.html`, html);
+        await fs.mkdir(`dest/posts/topics/${tag}`)
+        await fs.writeFile(`dest/posts/topics/${tag}/index.html`, html);
     }else {
         await fs.writeFile(`dest/posts/index.html`, html);
     }
