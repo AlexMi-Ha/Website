@@ -4,7 +4,7 @@
         <img src="/images/alex.jpg" alt="A picture of the author" class="round" width="70" >
         <p class="mt-p5">Alex Hagl</p>
         <span class="border-top"><%= post.date.toLocaleString('default', { month: 'long', day:'numeric', year:'numeric' }) %></span><br>
-        <!-- <span><span class="ti ti-eye"></span> <span id="view-span"></span> | <button type="button" id="like-button" class="nobutton"><span class="ti ti-heart"></span> <span id="like-span"></span></button></span> -->
+        <span><span class="ti ti-eye"></span> <span id="view-span"></span> | <button type="button" id="like-button" class="nobutton"><span class="ti ti-heart"></span> <span id="like-span"></span></button></span>
     </div>
     <markdown>
         <div>
@@ -12,7 +12,7 @@
         </div>
     </markdown>
     <script src="/js/prism.js"></script>
-    <!-- <script>
+    <script>
         const viewSpan = document.getElementById('view-span');
         const likeSpan = document.getElementById('like-span');
         const likeButton = document.getElementById('like-button');
@@ -91,6 +91,6 @@
             const item = lookup.findLast(item => num >= item.value);
             return item ? (num / item.value).toFixed(1).replace(regexp, "").concat(item.symbol) : "0";
         }
-    </script> -->
+    </script>
 </article>
 
