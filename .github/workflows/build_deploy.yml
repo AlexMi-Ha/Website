@@ -3,9 +3,7 @@ on:
     branches:
       - main
 
- 
-
-jobs:
+ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build and Push
@@ -53,24 +51,3 @@ jobs:
           FOLDER: dest/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg}"
-
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy to FTP
-    needs: build
-    steps:
-      - name: git-checkout
-        uses: actions/checkout@v2 
-        with:
-          fetch-depth: 0
-          ref: gh-pages
-          
-      - name: Sync to FTP server
-        uses: milanmk/actions-file-deployer@master
-        with:
-          remote-protocol: sftp
-          remote-host: ${{ secrets.FTP_HOST }}
-          remote-user: ${{ secrets.FTP_USER }}
-          remote-password: ${{ secrets.FTP_PASSWORD }}
-          remote-path: /prod
-          remote-port: ${{ secrets.FTP_PORT }}
