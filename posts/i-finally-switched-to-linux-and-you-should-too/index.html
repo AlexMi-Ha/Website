@@ -106,9 +106,9 @@ As is quite obvious, I really love products such as .NET or VSCode and I&#39;m v
         const postId = '3';
         let liked = !!getCookie('liked');
 
-        fetch('http://alexmiha.de/api/blog/visit.php?id=' + postId);
+        fetch('https://alexmiha.de/api/blog/visit.php?id=' + postId);
 
-        fetch('http://alexmiha.de/api/blog/poststats.php?id=' + postId)
+        fetch('https://alexmiha.de/api/blog/poststats.php?id=' + postId)
             .then(e => e.json())
             .then(e => {
                 viewSpan.innerText = formatNumber(e['visits']);
@@ -131,7 +131,7 @@ As is quite obvious, I really love products such as .NET or VSCode and I&#39;m v
             likeButton.disabled = true;
             let promise;
             if(liked) {
-                promise = fetch('http://alexmiha.de/api/blog/unlike.php?id='+ postId)
+                promise = fetch('https://alexmiha.de/api/blog/unlike.php?id='+ postId)
                     .then(e => {
                         if(!e.ok)
                             throw new Error();
@@ -144,7 +144,7 @@ As is quite obvious, I really love products such as .NET or VSCode and I&#39;m v
                         liked = false;
                     });
                 }else {
-                    promise = fetch('http://alexmiha.de/api/blog/like.php?id='+ postId)
+                    promise = fetch('https://alexmiha.de/api/blog/like.php?id='+ postId)
                     .then(e => {
                         if(!e.ok)
                         throw new Error();
