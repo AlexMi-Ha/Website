@@ -57,6 +57,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to FTP
+    needs: build
     steps:
       - name: git-checkout
         uses: actions/checkout@v2 
