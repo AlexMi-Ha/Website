@@ -218,9 +218,9 @@ It depends on what your goal is.</p>
         const postId = '1';
         let liked = !!getCookie('liked');
 
-        fetch('http://api.alexmiha.de/blog/visit.php?id=' + postId);
+        fetch('http://alexmiha.de/api/blog/visit.php?id=' + postId);
 
-        fetch('http://api.alexmiha.de/blog/poststats.php?id=' + postId)
+        fetch('http://alexmiha.de/api/blog/poststats.php?id=' + postId)
             .then(e => e.json())
             .then(e => {
                 viewSpan.innerText = formatNumber(e['visits']);
@@ -243,7 +243,7 @@ It depends on what your goal is.</p>
             likeButton.disabled = true;
             let promise;
             if(liked) {
-                promise = fetch('http://api.alexmiha.de/blog/unlike.php?id='+ postId)
+                promise = fetch('http://alexmiha.de/api/blog/unlike.php?id='+ postId)
                     .then(e => {
                         if(!e.ok)
                             throw new Error();
@@ -256,7 +256,7 @@ It depends on what your goal is.</p>
                         liked = false;
                     });
                 }else {
-                    promise = fetch('http://api.alexmiha.de/blog/like.php?id='+ postId)
+                    promise = fetch('http://alexmiha.de/api/blog/like.php?id='+ postId)
                     .then(e => {
                         if(!e.ok)
                         throw new Error();
