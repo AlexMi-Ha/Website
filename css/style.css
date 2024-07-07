@@ -189,6 +189,11 @@ nav #nav-toggle {
     row-gap: 5em;
 }
 
+.content-left {
+    place-content: flex-start;
+    place-items: flex-start;
+}
+
 .content.col-1 {
     grid-template-columns: 1fr;
 }
@@ -294,6 +299,10 @@ footer .footer-content div a {
 
 .text-center {
     text-align: center;
+}
+
+.text-left {
+    text-align: left;
 }
 
 .round {
