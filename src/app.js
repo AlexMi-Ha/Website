@@ -33,7 +33,9 @@ app.get('/contact', async (_,res) => {
 app.get('/imprint', async (_,res) => {
     res.send(await renderPage('imprint'));
 });
-
+app.get('/privacy', async (_,res) => {
+    res.send(await renderPage('privacy'));
+});
 
 app.get('/posts', async (req, res) => {
     res.send(await renderPage('blog/posts', {posts: posts, allTags: allTags, currentTag: ''}));
