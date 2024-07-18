@@ -81,7 +81,7 @@ async function createTopic(posts, tag, tags) {
 async function buildRSSFeed(posts) {
     const feed = new rss.Feed({
         title: "AlexMiHa's Blog",
-        description: "",
+        description: "The RSS Feed focused on the blog content of the alexmiha.de website where I write silly posts.",
         id: "https://alexmiha.de/posts/feed.xml",
         link: "https://alexmiha.de/posts",
         language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes

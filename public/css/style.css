@@ -420,6 +420,12 @@ button.nobutton {
     font-size: var(--font-size--default);
 }
 
+.rss-icon {
+    font-size: 30px;
+    text-decoration: none !important;
+    vertical-align: bottom;
+}
+
 @media screen and (max-width: 1017px) {
 
     .image-section img {
