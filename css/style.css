@@ -566,16 +566,17 @@ button.nobutton {
     }
 }
 
-@media screen and (max-width: 420px) {
-    #insta-link {
+@media screen and (max-width: 450px) {
+    .foot-dot {
+        display:none;
+    }
+
+    #mail-link {
         display: none;
     }
 }
 
 @media screen and (max-width: 370px) {
-    #mail-link {
-        display: none;
-    }
 
     .text-section {
         width: auto;
@@ -587,8 +588,20 @@ button.nobutton {
     .text-section .heading h3 {
         font-size: var(--font-size--default);
     }
-    .foot-dot {
-        display:none;
+    
+
+    .footer-content div:first-child {
+        display: block;
+    }
+
+    .footer-content div:first-child span:first-child{
+        display: block;
+    }
+
+}
+@media screen and (max-width: 260px) {
+    #rss-link {
+        display: none;
     }
 }
 
