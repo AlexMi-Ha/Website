@@ -85,7 +85,7 @@ async function buildRSSFeed(posts) {
         id: "https://alexmiha.de/posts/feed.xml",
         link: "https://alexmiha.de/posts",
         language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-        image: "https://alexmiha.de/images/logo.webp",
+        image: "https://alexmiha.de/images/logo.jpg",
         favicon: "https://alexmiha.de/images/favicon.ico",
         copyright: "Copyright " + posts[0].date.getFullYear() + ", AlexMiHa",
         updated: posts[0].date,
