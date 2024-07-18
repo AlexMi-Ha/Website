@@ -4,7 +4,7 @@
     "home_page_url": "https://alexmiha.de/posts",
     "feed_url": "https://alexmiha.de/posts/json",
     "description": "The RSS Feed focused on the blog content of the alexmiha.de website where I write silly posts.",
-    "icon": "https://alexmiha.de/images/logo.webp",
+    "icon": "https://alexmiha.de/images/logo.jpg",
     "author": {
         "name": "Alex Hagl",
         "url": "https://alexmiha.de"
