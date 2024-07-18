@@ -35,6 +35,10 @@
     content: "\eb1c"
 }
 
+.ti-rss:before {
+    content: "\eb19"
+}
+
 .ti-key::before {
     content: "\eac7";
 }

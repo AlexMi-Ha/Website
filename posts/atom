@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://alexmiha.de/posts/feed.xml</id>
+    <title>AlexMiHa's Blog</title>
+    <updated>2024-07-03T00:00:00.000Z</updated>
+    <generator>awesome</generator>
+    <author>
+        <name>Alex Hagl</name>
+        <email>alex@alexmiha.de</email>
+        <uri>https://alexmiha.de</uri>
+    </author>
+    <link rel="alternate" href="https://alexmiha.de/posts"/>
+    <link rel="self" href="https://alexmiha.de/posts/atom"/>
+    <subtitle>The RSS Feed focused on the blog content of the alexmiha.de website where I write silly posts.</subtitle>
+    <logo>https://alexmiha.de/images/logo.webp</logo>
+    <icon>https://alexmiha.de/images/favicon.ico</icon>
+    <rights>Copyright 2024, AlexMiHa</rights>
+    <entry>
+        <title type="html"><![CDATA[I switched to Linux and why you should too]]></title>
+        <id>https://alexmiha.de/posts/i-finally-switched-to-linux-and-you-should-too</id>
+        <link href="https://alexmiha.de/posts/i-finally-switched-to-linux-and-you-should-too"/>
+        <updated>2024-07-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Here I share my reasons and experiences on switching my setup to run linux.]]></summary>
+        <content type="html"><![CDATA[<p>Sooo 👋,</p>
+<p>a month ago I finally made the switch to a Linux based operating system 🐧.</p>
+<p>I was a Windows user since I got my first computer and played with the thought of switching to Linux every now and then. But the last few years this voice became louder and louder and now, finally, I made the big change 🎈.</p>
+<h2><a name="section-the-microsoft-disaster" class="anchor"  href="https://alexmiha.de/posts/i-finally-switched-to-linux-and-you-should-too#section-the-microsoft-disaster" ><span class="header-link"></span></a>The Microsoft disaster</h2><p>For everyone active in the tech community this change does not come as a surprise. </p>
+<p>A few weeks ago, Microsoft announced their newest shenanigans - Microsoft Recall targeted for the new Copilot+ AI powered laptop. Recall is one of those products that sound really cool, but considering the current threat level in the tech community, this feature is an absolute no-go if distributed as closed source 😱.</p>
+<p>For those not familiar with Microsoft Recall yet, it enables the user to <strong>search through their activity on the computer using AI</strong>. If you know you have visited a website with a picture of a goose in the past, you can search for goose and Recall finds the program and website used at the time 🪿. To achieve this, Recall periodically saves screenshots and metadata of the stuff you look at. This of course includes passwords, sensitive data like images or personal documents and all cat-picture websites you visit on your computer 🧡🖤.</p>
+<p>Microsoft claims that Recall saves the captured data <em>locally only</em> on the machine in an <em>encrypted</em> format. <strong>BUT</strong>, as this data can be accessed through Recall itself, the information on how to decrypt this data must also be stored locally. This means, that if the encryption cannot be avoided in other ways, a hacker which has access to your machine can just use Recall to search through this history, making you <strong>vulnerable</strong> to targeted <strong>ads</strong>, <strong>social engineering</strong>, <strong>ransom</strong>, <strong>identity theft</strong>, and much much more.</p>
+<p>It is good, that the data is stored locally - <em>FOR NOW</em>. In my opinion, and I&#39;m <a href="https://youtu.be/2-z-iwfPslI?si=j1Gj1CpZuXJry0wR&t=890">not the only one with this concern</a>, this will definitly not stay this way, in the future this <em>WILL</em> be synced to the cloud or sent to a server for processing, due to the hardware requirements for such AI models.</p>
+<p>This feature is especially dangerous for kids, elders and other non-tech savvy users, because they cannot or do not want to grasp the <strong>major security implications</strong>.</p>
+<p>If any other company would release such an application, this would definitly be considered potential spyware 🕵.</p>
+<p>Thankfully, after the massive backlash Microsoft got from the IT-Security community, they delayed this feature until current flaws are fixed. But as it is standing now, it still will be coming! In my opinion, the trust to the Windows team of Microsoft is long gone and going forward I will try to avoid this operating system as much as possible.</p>
+<p><strong>So if you are reading this and know of any non-tech savvy users in your environment, PLEASE, warn them of this feature and help them disable it, when it arrives or even better help them switch to Linux (e.g Linux Mint). And if they answer &quot;I have nothing to hide&quot; they should definitely leave the front door of their house unlocked and open 24/7 as they have nothing to hide anyways.</strong></p>
+<blockquote>
+<p>Thanks For Coming To My TED Talk 🙃</p>
+</blockquote>
+<h2><a name="section-i-don-t-use-arch-btw-" class="anchor"  href="https://alexmiha.de/posts/i-finally-switched-to-linux-and-you-should-too#section-i-don-t-use-arch-btw-" ><span class="header-link"></span></a>I don't use Arch, btw.</h2><p>Now, the important question: <em>What distribution will I be using?</em></p>
+<p>Many distributions have close to a <strong>religion-like following</strong> 😶‍🌫️. For me, I wanted an operating system, that <strong>does not stand in my way of doing things</strong>. In the past I looked at <em>Ubuntu, Fedora and Linux Mint</em>. With those distros being very mainstream, I read, that there is a minimized chance of missing drivers or incompatibilities 🚀.</p>
+<p>I&#39;ve heard from a few people that they really like the <em>Gnome window manager</em>, so I narrowed my selection to Ubuntu and Fedora. I then tried both distros in a virtual machine, which OS fits best to me and finally I stuck with <strong>Ubuntu</strong> 🎉.</p>
+<p>The vanilla Gnome experience in Fedora is nice but I like the custom Gnome and the dock in Ubuntu more.</p>
+<h2><a name="section-which-filesystem-is-best-" class="anchor"  href="https://alexmiha.de/posts/i-finally-switched-to-linux-and-you-should-too#section-which-filesystem-is-best-" ><span class="header-link"></span></a>Which filesystem is best?</h2><p>As the standard Windows file system <a href="https://en.wikipedia.org/wiki/NTFS">NTFS</a> is <strong>proprietary and closed source</strong>, the existing Linux drivers for NTFS are community made and reverse engineered. The implementation is not based on a specification which means that there could be <strong>incompatibilities</strong> or even <strong>bugs</strong> 🪲.</p>
+<p>Therefore, I went through my hard drives, deleted stuff I didn&#39;t need anymore, backed up files I wanted to save and reformated the drives to the <a href="https://en.wikipedia.org/wiki/Ext4">ext4</a> filesystem.</p>
+<p>All of my drives except two. On one SSD, I cloned my Windows system drive, so I can have a dual boot setup if at any point I need to go back to my Windows installation. Additionally, I kept one 1 TB HDD on NTFS for Windows file storage.</p>
+<p>That leaves the rest of the drives and my M.2 NVME SSD free for my Ubuntu installation and storage space in <strong>ext4</strong> 🎈.</p>
+<h2><a name="section-driver-i-hardly-know-her-" class="anchor"  href="https://alexmiha.de/posts/i-finally-switched-to-linux-and-you-should-too#section-driver-i-hardly-know-her-" ><span class="header-link"></span></a>Driver? I hardly know her!</h2><p>I&#39;ve heard a lot of horror stories of incompatibilities on Linux with basically everything.</p>
+<p><img  src="https://alexmiha.de/images/posts/a224cb67-e299-476f-a219-08d2db1d67f4.jpg"  alt="Linux user sending an email meme"></p>
+<p>But with current versions of Ubuntu (24.04 LTS) there were basically no problems yet 🗿. My NVIDIA Graphics card and all of my Hardware worked out of the box and installing programs is as easy as on Windows.</p>
+<p>Even gaming works better than expected. These last few years, VALVE, the company behind the game platform Steam, invested a lot of time into a compatibility layer called Proton, which lets you play Windows only games on Linux as well.</p>
+<p>Of course there is the problem of some other software such as Adobe not being available on Linux. I haven&#39;t looked into WINE or Bottles yet, but in an emergency (which hasn&#39;t happened yet) I could just boot into Windows for that task. Meanwhile, I started getting used to using <a href="https://github.com/Diolinux/PhotoGIMP">PhotoGIMP</a> as a replacement for Photoshop.</p>
+<h2><a name="section-conclusion" class="anchor"  href="https://alexmiha.de/posts/i-finally-switched-to-linux-and-you-should-too#section-conclusion" ><span class="header-link"></span></a>Conclusion</h2><p>I waited a very long time to finally make the switch to Linux Desktop and I&#39;m very happy with how everything works!</p>
+<p>I basically have all features I really need for my dev workflows and I&#39;m getting a lot of quality of life improvements, that come with the improved configurations possible on linux.</p>
+<p>Finally, even if this post seemed to basically hate on Microsoft, I actually really like the software Microsoft creates - limited to development software, of course.
+As is quite obvious, I really love products such as .NET or VSCode and I&#39;m very thankful of the fusion of Xamarin and .NET, that I can still use the .NET and C# ecosystem on Linux to develop my Software.</p>
+<p>Aaaaaaand the compulsory neofetch screenshot:
+<img  src="https://alexmiha.de/images/posts/f1e39ffa-b36f-43ce-b098-5eda9ab293fd.webp"  alt="Neofetch"></p>
+]]></content>
+        <author>
+            <name>Alex Hagl</name>
+            <email>alex@alexmiha.de</email>
+            <uri>https://alexmiha.de</uri>
+        </author>
+        <category term="Tech"/>
+        <category term="Security"/>
+        <published>2024-07-03T00:00:00.000Z</published>
+        <rights>Copyright 2024, AlexMiHa</rights>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How to keep motivated as a software engineer]]></title>
+        <id>https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer</id>
+        <link href="https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer"/>
+        <updated>2024-04-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Tips and tricks on how to set yourself goals and keep focused as a software engineer.]]></summary>
+        <content type="html"><![CDATA[<p>We all know it and have experienced it - free time is a valuable resource ⏳. I&#39;m in the 6th semester of my computer science degree and have little to no time to work on my personal projects.</p>
+<p>With as little of time that is left from the stressful day-to-day life, it is important to maximize not only what actually gets done, but most importantly to have as much fun as possible and to learn something in the progress. 🧠</p>
+<p>Today I have compiled a small list of tips and tricks I use daily to keep my learning journey running and to stay motivated developing software. 🚀</p>
+<h2><a name="section-the-deadline-is-coming-" class="anchor"  href="https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer#section-the-deadline-is-coming-" ><span class="header-link"></span></a>The deadline is coming!</h2><p>16! I have 16 dead projects on my hard drive. And that is without the unfinished projects I have collected on GitHub 💀 -  Why is that?</p>
+<p>When I compare my finished projects and most of my unfinished projects there is a clear difference between the two.</p>
+<p>Most of my finished projects were planned through. I have set myself specific goals to reach in a specific time frame. 🏁</p>
+<blockquote>
+<p>You may have heard of SMART goals.</p>
+</blockquote>
+<p>SMART goals stand for goals that are <em>specific</em>, <em>measurable</em>, <em>achievable</em>, <em>relevant</em> and most importantly <em>time-bound</em>.</p>
+<p>Whenever I start a new project, I try my best to keep notes on the most important features I want to implement, a rough roadmap of development and how long I am committing my time to this project. I try to first define what I want out of this project and how it integrates into my ecosystem.</p>
+<p>With this I have automatic <em>&#39;scheduling&#39;</em> for my projects, on which project I will work on and when I can start new projects.</p>
+<blockquote>
+<p>And we both know working with a deadline is where most work gets done 👀</p>
+</blockquote>
+<h2><a name="section-collaborate-with-others" class="anchor"  href="https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer#section-collaborate-with-others" ><span class="header-link"></span></a>Collaborate with others</h2><p>Building projects with others significantly boosts your experience and motivation by a lot. I work well when collaborating with others as I know that they depend on me getting my work done. This boosts the motivation to put work into the project. 🎈</p>
+<p><em>Collaborating with others</em> does not only mean contributing to open source here as many other people say you should do.</p>
+<p>Collaborating with others means starting some projects with a few friends. You don&#39;t even have to search for developers better than you. The senior-junior developer and mentoring mindset does make sense, especially when starting out. But building a project, where you are the &#39;senior developer&#39; does improve your engineering skills. What most people miss out on is learning how to properly <strong>start</strong> a project. When you &#39;lead&#39; your project team, you learn a lot of different skills like architecture, design patterns and choosing the right tools. Plus you learn a lot about project management and leading a team. </p>
+<p>Working on projects with other people helps me to stay motivated and not abandon another project to ✨the bottom of my GitHub repo list✨. </p>
+<h2><a name="section-learn-something-new" class="anchor"  href="https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer#section-learn-something-new" ><span class="header-link"></span></a>Learn something new</h2><p>When I choose projects to develop, a big factor in the decision is building something, which I will learn a lot from 💡</p>
+<p>I try to either explore and set my focus on a topic in software engineering or infrastructure that I want to improve in or to switch up my default tools and maybe use a different database or a different language. 🔀</p>
+<p>That way, developing a web service for the thousandth time does not get boring but is another challenge in itself which results in a lot of motivation going to the project.</p>
+<h2><a name="section-keep-a-list" class="anchor"  href="https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer#section-keep-a-list" ><span class="header-link"></span></a>Keep a list</h2><p>When I was in my 4th and 5th year of learning programming I had a phase where I had no more projects to work on. I ran out of ideas on what to develop - I had no need for any more software.</p>
+<p>Nowadays, I have set myself the <em>simple</em> goal of building my own software ecosystem to use in my private homelab 👩‍💻.</p>
+<p>With such a goal, thousands of projects fall out:</p>
+<ul>
+<li>How can I authenticate to each service -&gt; Create an Identity Server 🔐</li>
+<li>How can I manage my logs -&gt; Logging Software 📝</li>
+<li>Oh no, I have too many passwords -&gt; Password Manager 🔒</li>
+<li>I want to sync my passwords ONLY in my local network -&gt; Distributed Database Design 💾</li>
+</ul>
+<p>...and so on. I keep all of these ideas I have for expanding my ecosystem in a big list. If I want to start a new project I have a lot of ideas lined up in the queue.</p>
+<p>Working on a simple, defined and attractive goal of (in my example) hosting a private software ecosystem provided me with a lot of projects to build and a lot of lessons to learn.</p>
+<p>Many would say <em>&quot;Don&#39;t reinvent the wheel&quot;</em>, I say <em>&quot;Reinvent the wheel and learn something from it&quot;</em>. You will make errors, but you can compare your solutions to how others have solved the problem and for me, that is a lot of fun! 😁</p>
+<h2><a name="section-gotta-have-them-metrics" class="anchor"  href="https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer#section-gotta-have-them-metrics" ><span class="header-link"></span></a>Gotta have them metrics</h2><p>The final trick I use to stay motivated is to always track some kind of metric on how much I got done.</p>
+<p>For me, this is my GitHub contribution chart.</p>
+<blockquote>
+<p>I wouldn&#39;t say I&#39;m a competitive person. 🐷<br>
+~ Technoblade</p>
+</blockquote>
+<p>I like to look at my contribution chart and see <em>&quot;Oh cool, on this day I&#39;ve gotten to 50 commits!&quot;</em>. 🚀 It fires up my inner gamer and motivates me to maximize productivity based on my contribution chart.</p>
+<p>Of course, this is not the only metric you could use - in fact, it probably isn&#39;t the best either. You can use anything that keeps track of how much you have accomplished like completed tickets or something similar.</p>
+<h2><a name="section-last-words" class="anchor"  href="https://alexmiha.de/posts/how-to-keep-motivated-as-a-software-engineer#section-last-words" ><span class="header-link"></span></a>Last Words</h2><p>Those were a few of my tips and tricks on how I stay motivated to develop software.</p>
+<p>But always keep in mind: if something you do to force yourself to do more coding is too much for you and drains your motivation you can just try some other method.</p>
+<p>The main focus should always be fun - Having fun coding and creating software is the most important thing as a software engineer. 🔥</p>
+]]></content>
+        <author>
+            <name>Alex Hagl</name>
+            <email>alex@alexmiha.de</email>
+            <uri>https://alexmiha.de</uri>
+        </author>
+        <category term="Programming"/>
+        <category term="Life"/>
+        <category term="Motivation"/>
+        <published>2024-04-07T00:00:00.000Z</published>
+        <rights>Copyright 2024, AlexMiHa</rights>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[I wrote my own blogging software, and why you should not!]]></title>
+        <id>https://alexmiha.de/posts/i-wrote-my-own-blogging-software</id>
+        <link href="https://alexmiha.de/posts/i-wrote-my-own-blogging-software"/>
+        <updated>2024-03-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In this post I will talk about my journey and the hurdles I've had while creating my very own blogging software.]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>&quot;<em>QWERTYUIOP.</em>&quot;</p>
+</blockquote>
+<p> ~ Ray Tomlinson - The first email message ever sent (probably)</p>
+<p>Hello there,</p>
+<p>I&#39;ve finally gotten around to writing the first blogpost on my website. Finally getting a use out of the blogging software I wrote exactly for this purpose 🥳.</p>
+<p>In this post I will tell you something about <strong>my journey</strong> of writing this piece of software and my <strong>hurdles</strong> along the way! 👀</p>
+<h2><a name="section-static-sites-for-the-win" class="anchor"  href="https://alexmiha.de/posts/i-wrote-my-own-blogging-software#section-static-sites-for-the-win" ><span class="header-link"></span></a>Static sites for the win</h2><p>I thought long about what tech stack to use for this project.</p>
+<blockquote>
+<p><em>Do I want the maintainability of a full cms?</em> ⚙</p>
+<p><em>Where do I want to host this?</em> 💻</p>
+<p><em>How complex do I want it to get?</em> 🤯</p>
+<p><em>What will I learn from this?</em> 🧠</p>
+</blockquote>
+<p>Creating a full content management system is not easy. You have to manage your database, have a seperate backend running to access it, of course you need the frontend...</p>
+<p>That is a <strong>big</strong> hassle!</p>
+<p>I always gravitated towards the simplicity of static websites. Why should I build a complex infrastructure where none is needed?</p>
+<p>With static html, css and javascript you do not have the problem of updating dependencies, relying on a framework like angular or react and so on. 🗽</p>
+<p>I know as software engineers we always try to use the newest and fanciest framework or library, but at what cost? You lose control over your DOM and have an absolute overkill of a project!</p>
+<p>But I didn&#39;t want to give away the power of a templating engine! The one <strong>major</strong> drawback of static sites is <strong>code duplication</strong>! You have to repeat your main layout in each and every file!</p>
+<p>So I saw the requirements and compromised to use a simple templating engine. </p>
+<p>I used a simple <code>express.js</code> server to dynamically serve my content with the <code>EJS</code> templating engine to build the view.</p>
+<p><em>But didn&#39;t I want an easy deployment? Now I have to run a webserver all over again!</em> 🤐</p>
+<p>Using a templating engine is beneficial in development but loses its use case for static websites after deploying. Thats why I decided to <strong>compile</strong> my express application to static html in the deployment step!</p>
+<p>For this I first needed the main render function for a specific EJS view 🚀</p>
+<pre><code class="language-js">const renderPage = async (view, data) =&gt; {
+    return await ejs.renderFile(&#39;src/layout/layout.ejs&#39;, {
+        view: view,
+        body: await ejs.renderFile(`src/views/${view}.ejs`, data)
+    });
+}
+</code></pre>
+<p>With this function I just need to search the views folder, render all the files and save it in the ouput folder!</p>
+<pre><code class="language-js">async function buildBlog() {
+    const posts = await loadPosts();
+    const tags = getUniqueTags(posts);
+
+    const postPromises = [];
+    await fs.mkdir(&#39;dest/posts/topics&#39;, {recursive: true});
+    postPromises.push(createTopic(posts, NO_FILTER, tags));
+    for(const tag of tags) {
+        postPromises.push(createTopic(posts, tag, tags));
+    }
+    for(const post of posts) {
+        postPromises.push(createPost(post));
+    }
+    await Promise.all(postPromises);
+}
+</code></pre>
+<p>This function retrieves all files from the posts folder and builds the filtered topic overview pages and the post pages itself. ⚙</p>
+<pre><code class="language-js">async function createPost(post) {
+    const html = await renderPage(&#39;blog/post&#39;, {post:post});
+    await fs.writeFile(`dest/posts/${post.filename}.html`, html);
+}
+
+async function createTopic(posts, tag, tags) {
+    if(tag)
+        posts = posts.filter(e =&gt; e.tags.includes(tag));
+
+    const html = await renderPage(&#39;blog/posts&#39;, {posts:posts, allTags: tags, currentTag: tag});
+    if(tag) {
+        await fs.writeFile(`dest/posts/topics/${tag}.html`, html);
+    } else {
+        await fs.writeFile(`dest/posts/index.html`, html);
+    }
+}
+</code></pre>
+<p>Finally the pages can be rendered and written to the destination folder. 🚀</p>
+<p>Building it by myself everytime I have changes, would be too much work. A <strong>github action</strong> is needed! 😋</p>
+<pre><code class="language-yaml">on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Push
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: &#39;18.x&#39;
+
+      - name: Install all dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Push
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: dest/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: &quot;Build: ({sha}) {msg}&quot;
+</code></pre>
+<p>On every push, the website gets compiled to <strong>static html</strong> and gets pushed to another branch.</p>
+<p>This also solves how to add new content on a static system - Just make a commit to the repository, which also has the advantages of <strong>automated backups</strong>. 🥳 </p>
+<p><code>Thanks Github!</code></p>
+<h2><a name="section-markdown-templates" class="anchor"  href="https://alexmiha.de/posts/i-wrote-my-own-blogging-software#section-markdown-templates" ><span class="header-link"></span></a>Markdown templates</h2><p>Writing blog posts in pure html is still too boring. It just has too much overhead!
+<strong>Markdown</strong> is a common interface that allows writing content in nearly plaintext. I&#39;m already compiling my website, so why can&#39;t I also add a markdown compilation step?</p>
+<p>Thankfully, there are a lot of libraries for compiling markdown to html ready to use. </p>
+<blockquote>
+<p><strong>The advantage of using the node ecosystem! 😁</strong></p>
+</blockquote>
+<pre><code class="language-js">function parsePost(filename, rawPost) {
+    const lines = rawPost.split(&#39;\n&#39;)
+
+    const parsedPost = new Post();
+    parsedPost.filename = filename;
+
+    parseMetadata(parsedPost, lines);
+
+    parsedPost.htmlContent = marked.parse(lines.join(&#39;\n&#39;));
+    return parsedPost;
+} 
+</code></pre>
+<p>Here, I am using the <a href="https://github.com/markedjs/marked">marked.js</a> npm package to parse my markdown files to html. </p>
+<h2><a name="section-stealing-resources-from-github" class="anchor"  href="https://alexmiha.de/posts/i-wrote-my-own-blogging-software#section-stealing-resources-from-github" ><span class="header-link"></span></a>Stealing resources from GitHub</h2><p>I am a student. I am poor. I do not want to rent a server to host my application! 💰💸</p>
+<p>That&#39;s another advantage of static html. You can basically <strong>host it anywhere you want</strong>! There are a lot of free providers, that serve your static files for you. 🤑</p>
+<p>Here, I am using <code>GitHub Pages</code>. The deployment action already copies the compiled files into another branch. I can just point github pages to this branch and tell it to deploy it. 🚀</p>
+<p>GitHub pages also offers the ability to serve the website with a <strong>custom domain</strong>. Thankfully I have one!</p>
+<p>Just add a <code>CNAME</code> dns record for your domain, that points to the github servers and add your domain in the repository settings. You can read more about this process in the <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages">GitHub docs</a>.</p>
+<h2><a name="section-why-you-should-not-write-your-own-blogging-software-" class="anchor"  href="https://alexmiha.de/posts/i-wrote-my-own-blogging-software#section-why-you-should-not-write-your-own-blogging-software-" ><span class="header-link"></span></a>Why you should not write your own blogging software!</h2><p>As the post title already says, you should not write your own blogging software!
+It depends on what your goal is.</p>
+<blockquote>
+<p>Do you want to write blog posts?</p>
+<p>Do you want to write a blogging software?</p>
+</blockquote>
+<p>These are two very different goals. For me, I wanted to start writing blog posts, to learn more about writing and expressing myself.</p>
+<p>But of course you are reading this post, so I really wrote my own solution for this.</p>
+<p>If your goal is to just write blog posts, this is not the optimal path. You will get distracted by designing your system. You will forget to <strong>actually write blog posts</strong>.</p>
+<p>I opened the pull request for the blogging part of my website on <strong>January 25th</strong>. I just got to writing my first post on <strong>March 3rd</strong>!</p>
+<p>It was fun writing this piece of software, but if your endgoal really is just to write posts about things you find interesting, just do it and use some other tool!</p>
+<blockquote>
+<p>Getting started is always the hardest part!</p>
+</blockquote>
+<h2><a name="section-last-words" class="anchor"  href="https://alexmiha.de/posts/i-wrote-my-own-blogging-software#section-last-words" ><span class="header-link"></span></a>Last Words</h2><p>If you want to learn more about this project, visit my <a href="https://github.com/AlexMi-Ha/Website">GitHub repo</a>.</p>
+<p>In the future, I will post on a wide range of topics. But do not take them as too serious. I just try to have fun and practice my writing skills a bit.</p>
+<p>In the end, I&#39;m just a random dude on the internet, who loves shitposting, programming, music and cooking.</p>
+]]></content>
+        <author>
+            <name>Alex Hagl</name>
+            <email>alex@alexmiha.de</email>
+            <uri>https://alexmiha.de</uri>
+        </author>
+        <category term="Programming"/>
+        <category term="Tech"/>
+        <published>2024-03-03T00:00:00.000Z</published>
+        <rights>Copyright 2024, AlexMiHa</rights>
+    </entry>
+</feed>
