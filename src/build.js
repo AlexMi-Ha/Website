@@ -2,6 +2,7 @@ const fsOld = require('fs');
 const fs = require('fs/promises');
 const path = require('path');
 const { renderPage, loadPosts } = require('./renderer');
+const rss = require('feed');
 
 async function renderFile(file) {
     const view = file.split('.')[0];
@@ -55,6 +56,7 @@ async function buildBlog() {
         postPromises.push(createPost(post));
     }
     await Promise.all(postPromises);
+    await buildRSSFeed(posts);
 }
 
 async function createPost(post) {
@@ -74,4 +76,119 @@ async function createTopic(posts, tag, tags) {
     }else {
         await fs.writeFile(`dest/posts/index.html`, html);
     }
+}
+
+async function buildRSSFeed(posts) {
+    const feed = new rss.Feed({
+        title: "AlexMiHa's Blog",
+        description: "",
+        id: "https://alexmiha.de/posts/feed.xml",
+        link: "https://alexmiha.de/posts",
+        language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
+        image: "https://alexmiha.de/images/logo.webp",
+        favicon: "https://alexmiha.de/images/favicon.ico",
+        copyright: "Copyright " + posts[0].date.getFullYear() + ", AlexMiHa",
+        updated: posts[0].date,
+        generator: "awesome", // optional, default = 'Feed for Node.js'
+        feedLinks: {
+            rss: "https://alexmiha.de/posts/feed.xml",
+            json: "https://alexmiha.de/posts/json",
+            atom: "https://alexmiha.de/posts/atom",
+        },
+        author: {
+            name: "Alex Hagl",
+            email: "alex@alexmiha.de",
+            link: "https://alexmiha.de"
+        }
+    });
+
+    const cleanedPosts = [ ...posts ]
+    cleanedPosts.forEach(e => {
+        e.htmlContent = replaceAnchorSourcesWithAbsoluteUrls(e.htmlContent, "/posts/"+e.filename)
+        e.htmlContent = replaceImageSourcesWithAbsoluteUrls(e.htmlContent, "/posts/"+e.filename)
+    });
+
+    cleanedPosts.slice(0, 10).forEach(e => {
+        feed.addItem({
+            title: e.title,
+            id: "https://alexmiha.de/posts/" + e.filename,
+            link: "https://alexmiha.de/posts/" + e.filename,
+            description: e.summary,
+            content: e.htmlContent,
+            author: [
+            {
+                name: "Alex Hagl",
+                email: "alex@alexmiha.de",
+                link: "https://alexmiha.de"
+            }
+            ],
+            date: e.date,
+            image: "https://alexmiha.de/" + e.titleImage,
+            category: e.tags.map(tag => {
+                return {term: tag}
+            }),
+            copyright: "Copyright " + posts[0].date.getFullYear() + ", AlexMiHa",
+            published: e.date,
+        })
+    });
+
+    const atom = feed.atom1();
+    const json = feed.json1();
+    const xmlFeed = feed.rss2();
+
+    await fs.writeFile('dest/posts/feed.xml', xmlFeed);
+    await fs.writeFile('dest/posts/atom', atom);
+    await fs.writeFile('dest/posts/json', json);
+}
+
+function replaceAnchorSourcesWithAbsoluteUrls(html, resourceUrl) {
+    return html.replaceAll(/<a ([^>]*)href=(?:"([^"]*)"|'([^']*)')([^>]*)>/gm, (full, pre, val1, val2, post) => {
+        const foundVal = val1 ?? val2;
+        const stringCharacter = val1 ? '"' : '\'';
+        let replaced = "";
+        if(isAbsoluteUrl(foundVal)) {
+            replaced = `<a ${pre} href=${stringCharacter}https://alexmiha.de${foundVal}${stringCharacter} ${post}>`;
+        }else if(isRemoteUrl(foundVal)) {
+            return full
+        }else if(isHashUrl(foundVal)) {
+            return replaced = `<a ${pre} href=${stringCharacter}https://alexmiha.de${resourceUrl}${foundVal}${stringCharacter} ${post}>`;
+        }else {
+            replaced = `<a ${pre} href=${stringCharacter}https://alexmiha.de${resourceUrl}/${foundVal}${stringCharacter} ${post}>`;
+        }
+
+        console.log("Found local url in anchor href! Replacing:\nold:"+full+"\nnew:"+replaced + "\n");
+        return replaced;
+    })
+}
+
+function replaceImageSourcesWithAbsoluteUrls(html, resourceUrl) {
+    return html.replaceAll(/<img ([^>]*)src=(?:"([^"]*)"|'([^']*)')([^>]*)>/gm, (full, pre, val1, val2, post) => {
+        const foundVal = val1 ?? val2;
+        const stringCharacter = val1 ? '"' : '\'';
+        let replaced = "";
+        if(isAbsoluteUrl(foundVal)) {
+            replaced = `<img ${pre} src=${stringCharacter}https://alexmiha.de${foundVal}${stringCharacter} ${post}>`;
+        }else if(isRemoteUrl(foundVal)) {
+            return full
+        }else if(isHashUrl(foundVal)) {
+            return replaced = `<img ${pre} src=${stringCharacter}https://alexmiha.de${resourceUrl}${foundVal}${stringCharacter} ${post}>`;
+        }else {
+            replaced = `<img ${pre} src=${stringCharacter}https://alexmiha.de${resourceUrl}/${foundVal}${stringCharacter} ${post}>`;
+        }
+
+        console.log("Found local url in image src! Replacing:\nold:"+full+"\nnew:"+replaced + "\n");
+        return replaced;
+    })
+}
+
+function isAbsoluteUrl(url) {
+    return url.startsWith("/");
+}
+
+function isRemoteUrl(url) {
+    return url.startsWith("http://") || url.startsWith("https://");
+}
+
+function isHashUrl(url) {
+    return url.startsWith("#");
 }
